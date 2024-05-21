@@ -1,5 +1,6 @@
-<template>
+<script></script>
 
+<template>
 <header>
   <img src="@/assets/Popped.png" alt="">
 <p>Products</p>
