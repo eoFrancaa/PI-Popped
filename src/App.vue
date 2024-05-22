@@ -1,14 +1,12 @@
 <script setup>
-import HomeView from './views/HomeView.vue';
+import { RouterView } from 'vue-router';
 
 </script>
 
 <template>
-<HomeView/>
+<RouterView></RouterView>
 </template>
 
 <style scoped>
-body{
- background: linear-gradient(90deg,rgb(204, 164, 199) , rgb(200, 34, 200));
-}
+
 </style>

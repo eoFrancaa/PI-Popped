@@ -1,11 +1,15 @@
-<script></script>
+<script>
+
+</script>
 
 <template>
 <header>
-  <img src="@/assets/Popped.png" alt="">
+  <router-link to="/">
+    <img src="@/assets/Popped.png" alt="">
+  </router-link>
 <p>Products</p>
 <p>Discovery</p>
- <p>Shop</p>
+<router-link to="/shop">Shop</router-link>
 </header>
 </template>
 
@@ -18,10 +22,15 @@ header{
   align-items: center;  
   gap: 20px;
   font-family: "Noto Sans Thai", sans-serif;
+ 
 
 }
+a {
+    text-decoration: none;
+    color: black;
+}
 
-p:hover{
+p:hover , a:hover{
   cursor: pointer;
   color:#A211D4;
   transition: all 0.5s;
