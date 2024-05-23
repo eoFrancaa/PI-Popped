@@ -1,130 +1,174 @@
 <script setup>
-import NavbarVue from "@/components/Navbar.vue";
-import {clothing} from  "@/_data/shop.js"
-import {cups} from  "@/_data/shop.js"
-import {bags} from  "@/_data/shop.js"
+import NavbarVue from '@/components/Navbar.vue'
+import {  computed } from 'vue';
+import { clothing } from '@/_data/shop.js'
+import { cups } from '@/_data/shop.js'
+import { bags } from '@/_data/shop.js'
 import 'vue-snap/dist/vue-snap.css'
-import { ref } from "vue";
+import { ref } from 'vue'
 
- const Bag = ref(false);
- const Cup = ref(false);
- const Clothing = ref(false);
+const Bag = ref(false)
+const Cup = ref(false)
+const Clothing = ref(false)
 
- 
+
+const cart = ref([])
+const showCart = ref(false)
+
+const addToCart = (item) => {
+  
+
+    cart.value.push(item)
+}
+
+function Checkout(){
+ alert('Purched with sucess')
+}
+
+const removeFromCart = (item) => {
+  const index = cart.value.indexOf(item)
+  if (index > -1) {
+    cart.value.splice(index, 1)
+  }
+}
+
+const cartTotal = computed(() => {
+  return cart.value.reduce((total, item) => total + item.valor , 0)
+})
+
 
 </script>
 <template>
- <NavbarVue/>
- <div class="title">
-  
- <h2>Select Some Category</h2>
- </div>
- <div class="itens">
-
-  <div class="cups" @click="Cup = true,Bag=!Cup,Clothing=!Cup">
-    <img src="@/assets/Img/cups.png" alt="">
-    <p>Cups</p>
+  <NavbarVue />
+  <div class="title">
+    <h2>Select Some Category</h2>
   </div>
-  <div class="bags" @click="Bag = true,Cup=!Bag,Clothing=!Bag">
-    <img src="@/assets/Img/mochila.png" alt="">
-    <p>Bags</p>
-
-  </div>
-  <div class="clothing" @click="Clothing = true,Cup=!Clothing,Bag=!Clothing">
-    <img src="@/assets/Img/camisa.png" alt="">
-    <p>Clothing</p>
-
-  </div>
-
-</div>
-<div class="roupas" v-if="Clothing ">
-
-  <div class="clouth-title">
-    <h2>Clothing</h2>
-  </div>
-  <carousel>
-    <div v-for="clouth in clothing" :key="clouth.id" class="clouth">
-  
-    <slide>
-      <div class="card">
-        <img :src="clouth.img" >
-        <p>{{ clouth.nome }}</p>
-        <p>{{ clouth.valor }}$  </p>
-        <button class="b-buy">Buy</button>
-        
-      </div>
-    </slide>
-  </div>
-</carousel>
-</div>
-
-<div class="copos" v-if="Cup">
-
-  <div class="clouth-title">
-    <h2>Cups</h2>
-  </div>
-  <carousel>
-    <div v-for="cup in cups" :key="cup.id" class="cup">
-      
-      <slide>
-        <div class="card">
-          <img :src="cup.img" >
-          <p>{{ cup.nome }}</p>
-          <p>{{ cup.valor }}$</p>
-          <button class="b-buy">Buy</button>
-        </div>
-      </slide>
+  <div class="itens">
+    <div class="cups" @click="(Cup = true), (Bag = !Cup), (Clothing = !Cup)">
+      <img src="@/assets/Img/cups.png" alt="" />
+      <p>Cups</p>
     </div>
-  </carousel>
-</div>
-  
-<div class="Bolsa" v-if="Bag ">
-
-  <div class="clouth-title">
-    <h2>Bag</h2>
+    <div class="bags" @click="(Bag = true), (Cup = !Bag), (Clothing = !Bag)">
+      <img src="@/assets/Img/mochila.png" alt="" />
+      <p>Bags</p>
+    </div>
+    <div class="clothing" @click="(Clothing = true), (Cup = !Clothing), (Bag = !Clothing)">
+      <img src="@/assets/Img/camisa.png" alt="" />
+      <p>Clothing</p>
+    </div>
+    <div class="cart-button" @click="showCart=! showCart">
+      <img src="@/assets/Img/cart.png" alt="">
+      <p>Cart</p>
+    </div>
   </div>
-  <carousel>
-    <div v-for="bag in bags" :key="bag.id" class="bag">
-      
-      <slide>
-        <div class="card">
-        <img :src="bag.img" >
-        <p>{{ bag.nome }}</p>
-        <p>{{ bag.valor }}$</p>
-        <button class="b-buy">Buy</button>
+  <div class="roupas" v-if="Clothing">
+    <div class="clouth-title">
+      <h2>Clothing</h2>
+    </div>
+    <carousel>
+      <div v-for="clouth in clothing" :key="clouth.id" class="clouth">
+        <slide>
+          <div class="card">
+            <img :src="clouth.img" />
+            <p>{{ clouth.nome }}</p>
+            <p>{{ clouth.valor }}$</p>
+            <button  class="b-buy" @click="addToCart(clouth)">Add to Cart</button>
+          </div>
+        </slide>
       </div>
-    </slide>
+    </carousel>
   </div>
-</carousel>
-</div>
 
+  <div class="copos" v-if="Cup">
+    <div class="clouth-title">
+      <h2>Cups</h2>
+    </div>
+    <carousel>
+      <div v-for="cup in cups" :key="cup.id" class="cup">
+        <slide>
+          <div class="card">
+            <img :src="cup.img" />
+            <p>{{ cup.nome }}</p>
+            <p>{{ cup.valor }}$</p>
+            <button class="b-buy" @click="addToCart(cup)">Add to Cart</button>
+          </div>
+        </slide>
+      </div>
+    </carousel>
 
+    
+  </div>
 
+  <div class="Bolsa" v-if="Bag">
+    <div class="clouth-title">
+      <h2>Bag</h2>
+    </div>
+    <carousel>
+      <div v-for="bag in bags" :key="bag.id" class="bag">
+        <slide>
+          <div class="card">
+            <img :src="bag.img" />
+            <p>{{ bag.nome }}</p>
+            <p>{{ bag.valor }}$</p>
+            <button class="b-buy"  @click="addToCart(bag)">Add to Cart</button>
+          </div>
+        </slide>
+      </div>
+    </carousel>
+  </div>
+  
+  
+<form >
+
+  <div class="cart" :class="{ 'cart-show': showCart }">
+    <div class="cart-title">
+      <h2>My Cart</h2>
+    </div>
+    <div v-if="cart.length > 0">
+      <ul>
+        <li v-for="(item, index) in cart" :key="index" class="cart-item">
+          <img :src="item.img" alt="" class="cart-item-img" />
+          <div class="cart-item-details">
+            <p>{{ item.nome }}</p>
+            <p>{{ item.valor }}$</p>
+          </div>
+          <button @click="removeFromCart(item)" class="remove-button">Remove</button>
+        </li>
+      </ul>
+      <p class="total">Total: {{ cartTotal }}$</p>
+      <button type="submit" class="checkout-button" @click="Checkout">Checkout</button>
+    </div>
+    <div v-else>
+      <p class="empty-cart">Your cart is empty.</p>
+    </div>
+  </div>
+</form>
 </template>
 
 <style>
-.title{
+.title {
   width: 100%;
   display: flex;
   justify-content: center;
   margin: 20px 0px 40px 0px;
   color: blueviolet;
-  
-
 }
-.title h2{
-  font-family: "Inter", sans-serif;
+.title h2 {
+  font-family: 'Inter', sans-serif;
 }
-.itens{
+.itens {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 3vh;
-  font-family: "Dela Gothic One", sans-serif;
+  font-family: 'Dela Gothic One', sans-serif;
   color: rgb(58, 55, 58);
 }
-.cups,.bags,.clothing{
+.cups,
+.bags,
+.clothing,
+.cart-button {
   width: 150px;
   height: 150px;
   border-radius: 20px;
@@ -136,20 +180,24 @@ import { ref } from "vue";
   box-shadow: 0 0 5px 0 grey;
   background: inherit;
   backdrop-filter: blur(20px);
-  
+  cursor: pointer;
 }
-.cups:hover,.bags:hover,.clothing:hover{
+.cups:hover,
+.bags:hover,
+.clothing:hover,
+.cart-button:hover {
   width: 170px;
   height: 170px;
   color: blueviolet;
 }
-.cups img,.bags img,.clothing img{
+.cups img,
+.bags img,
+.clothing img,
+.cart-button img{
   max-width: 70px;
-  
 }
 
-
-.card{
+.card {
   width: 400px;
   height: 600px;
   border: 1px solid rgba(0, 0, 0, 0.064);
@@ -159,38 +207,129 @@ import { ref } from "vue";
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
 }
-.b-buy{
+.b-buy {
   width: 100px;
   height: 50px;
   border-radius: 10px;
   background-color: rgb(115, 39, 169);
-  font-family: "Dela Gothic One", sans-serif; 
-  color:  rgb(227, 219, 226);
+  font-family: 'Dela Gothic One', sans-serif;
+  color: rgb(227, 219, 226);
   cursor: pointer;
   transition: 0.5s;
   margin: 5px;
 }
-.b-buy:hover{
+.b-buy:hover {
   width: 110px;
   height: 60px;
   font-size: large;
 }
-.clouth-title{
+.clouth-title {
   width: 100%;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   display: flex;
   justify-content: center;
-  margin-top: 20vh;
+  margin-top: 15vh;
 }
-.clouth,.cup,.bag{
+.clouth,
+.cup,
+.bag {
   width: 100%;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
-.clouth img,.cup img,.bag img{
+.clouth img,
+.cup img,
+.bag img {
   max-width: 390px;
   max-height: 500px;
+  object-fit: cover
 }
+
+.cart {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 300px;
+  height: 100%;
+  background-color: white;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+  overflow-y: auto;
+  transition: right 0.3s;
+  z-index: 999;
+  padding: 20px;
+}
+
+.cart-show {
+  right: 0;
+}
+
+.cart-title {
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
+
+.cart-item-img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-right: 15px;
+}
+
+.cart-item-details {
+  flex-grow: 1;
+}
+
+.cart-item-details p {
+  margin: 0;
+}
+
+.remove-button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.remove-button:hover {
+  background-color: darkred;
+}
+
+.total {
+  font-weight: bold;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.empty-cart {
+  text-align: center;
+  color: #888;
+  margin-top: 20px;
+}
+.checkout-button{
+ margin: 5vh;
+  width: 200px;
+  height: 40px;
+  background-color: rgb(144, 0, 255);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 </style>
