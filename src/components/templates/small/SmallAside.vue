@@ -17,7 +17,7 @@ import Flavors from '@/components/Flavors.vue';
   <Outdoors/>
   <Flavors/>
   <footer>
-    © Popped . 
+    © Popped .  
   </footer>
 </template>
 <style scoped>
@@ -47,15 +47,15 @@ main div{
   justify-content: center;
   background: #6E2F84;
   border-radius: 50%;
-  width: 400px;
-  height: 400px;
-z-index: 3;
+  width: 300px;
+  height: 300px;
+  z-index: 3;
 }
 
 .circulo img{
   transition: 0.5s;
-  width: 500px;
-  height: 650px;
+  width: 300px;
+  height: 370px;
   
 }
 .circulo img:hover{

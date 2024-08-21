@@ -1,5 +1,5 @@
 <script>
-
+import ShopLargeView from '@/views/ShopLargeView.vue';
 </script>
 
 <template>

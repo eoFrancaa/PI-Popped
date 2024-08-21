@@ -1,5 +1,6 @@
 <script setup>
+import SmallAside from '@/components/templates/small/SmallAside.vue'
 </script>
 <template>
-<h1>Layout small</h1>
+ <SmallAside/>
 </template>

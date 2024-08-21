@@ -1,67 +1,61 @@
 <script setup>
-import NavbarVue from '@/components/Navbar.vue'
-import {  computed } from 'vue';
-import { clothing } from '@/_data/shop.js'
-import { cups } from '@/_data/shop.js'
-import { bags } from '@/_data/shop.js'
-import 'vue-snap/dist/vue-snap.css'
-import { ref } from 'vue'
+import NavbarVue from '@/components/Navbar.vue';
+import { ref, computed } from 'vue';
+import { clothing, cups, bags } from '@/_data/shop.js';
+import 'vue-snap/dist/vue-snap.css';
 
-const Bag = ref(false)
-const Cup = ref(false)
-const Clothing = ref(false)
+const Bag = ref(false);
+const Cup = ref(false);
+const Clothing = ref(false);
 
-
-const cart = ref([])
-const showCart = ref(false)
+const cart = ref([]);
+const showCart = ref(false);
 
 const addToCart = (item) => {
-  
-
-    cart.value.push(item)
-}
-
-function Checkout(){
- alert('Purched with sucess')
-}
+  cart.value.push(item);
+};
 
 const removeFromCart = (item) => {
-  const index = cart.value.indexOf(item)
+  const index = cart.value.indexOf(item);
   if (index > -1) {
-    cart.value.splice(index, 1)
+    cart.value.splice(index, 1);
   }
-}
+};
 
 const cartTotal = computed(() => {
-  return cart.value.reduce((total, item) => total + item.valor , 0)
-})
+  return cart.value.reduce((total, item) => total + item.valor, 0);
+});
 
-
+function Checkout() {
+  alert('pix: 113.480.729-54');
+}
 </script>
+
 <template>
   <NavbarVue />
   <div class="title">
     <h2>Select Some Category</h2>
   </div>
   <div class="itens">
-    <div class="cups" @click="(Cup = true), (Bag = !Cup), (Clothing = !Cup)">
+    <div class="cups" @click="Cup = true; Bag = false; Clothing = false;">
       <img src="@/assets/Img/cups.png" alt="" />
       <p>Cups</p>
     </div>
-    <div class="bags" @click="(Bag = true), (Cup = !Bag), (Clothing = !Bag)">
+    <div class="bags" @click="Bag = true; Cup = false; Clothing = false;">
       <img src="@/assets/Img/mochila.png" alt="" />
       <p>Bags</p>
     </div>
-    <div class="clothing" @click="(Clothing = true), (Cup = !Clothing), (Bag = !Clothing)">
+    <div class="clothing" @click="Clothing = true; Cup = false; Bag = false;">
       <img src="@/assets/Img/camisa.png" alt="" />
       <p>Clothing</p>
     </div>
-    <div class="cart-button" @click="showCart=! showCart">
-      <img src="@/assets/Img/cart.png" alt="">
+    <div class="cart-button" @click="showCart = !showCart">
+      <img src="@/assets/Img/cart.png" alt="" />
       <p>Cart</p>
     </div>
   </div>
-  <div class="roupas" v-if="Clothing">
+
+  <div v-if="Clothing">
     <div class="clouth-title">
       <h2>Clothing</h2>
     </div>
@@ -72,14 +66,14 @@ const cartTotal = computed(() => {
             <img :src="clouth.img" />
             <p>{{ clouth.nome }}</p>
             <p>{{ clouth.valor }}$</p>
-            <button  class="b-buy" @click="addToCart(clouth)">Add to Cart</button>
+            <button class="b-buy" @click="addToCart(clouth)">Add to Cart</button>
           </div>
         </slide>
       </div>
     </carousel>
   </div>
 
-  <div class="copos" v-if="Cup">
+  <div v-if="Cup">
     <div class="clouth-title">
       <h2>Cups</h2>
     </div>
@@ -95,11 +89,9 @@ const cartTotal = computed(() => {
         </slide>
       </div>
     </carousel>
-
-    
   </div>
 
-  <div class="Bolsa" v-if="Bag">
+  <div v-if="Bag">
     <div class="clouth-title">
       <h2>Bag</h2>
     </div>
@@ -110,15 +102,12 @@ const cartTotal = computed(() => {
             <img :src="bag.img" />
             <p>{{ bag.nome }}</p>
             <p>{{ bag.valor }}$</p>
-            <button class="b-buy"  @click="addToCart(bag)">Add to Cart</button>
+            <button class="b-buy" @click="addToCart(bag)">Add to Cart</button>
           </div>
         </slide>
       </div>
     </carousel>
   </div>
-  
-  
-<form >
 
   <div class="cart" :class="{ 'cart-show': showCart }">
     <div class="cart-title">
@@ -136,15 +125,13 @@ const cartTotal = computed(() => {
         </li>
       </ul>
       <p class="total">Total: {{ cartTotal }}$</p>
-      <button type="submit" class="checkout-button" @click="Checkout">Checkout</button>
+      <button class="checkout-button" @click="Checkout">Checkout</button>
     </div>
     <div v-else>
       <p class="empty-cart">Your cart is empty.</p>
     </div>
   </div>
-</form>
 </template>
-
 <style>
 .title {
   width: 100%;
