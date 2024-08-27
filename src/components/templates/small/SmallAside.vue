@@ -6,38 +6,47 @@ import Flavors from '@/components/Flavors.vue';
 </script>
 
 <template>
-  <Navbar/>
- <main>
-  <p>Welcome to;</p>
-  <h1>Popped .</h1>
-  <div class="circulo">
-    <img src="@/assets/Img/Popped.png" alt="">
-  </div>
+  <router-link to="/" class="img-popped">
+    <img src="@/assets/Popped.png" alt="">
+  </router-link>
+  <main>
+    <p>Welcome to</p>
+    <h1>Popped .</h1>
+    <div class="circulo">
+      <img src="@/assets/Img/Popped.png" alt="">
+    </div>
   </main>
-  <Outdoors/>
-  <Flavors/>
   <footer>
-    © Popped .  
+    <Navbar />
   </footer>
 </template>
 <style scoped>
-main{
+*{
+  margin: 0;
+}
+main {
   font-family: "Inter", sans-serif;
   font-size: xx-large;
-  width: 100%;
-  height: 100vh;
+  width:360px;
+  height: 685px;
   display: flex;
   align-items: center;
- justify-content: center;
- flex-direction: column;
- color: #3C0250;
+  justify-content: center;
+  flex-direction: column;
+  color: #3C0250;
 
 }
-main h1{
+
+main h1 {
+  display: flex;
   font-family: "Shrikhand", serif;
   color: #A211D4;
+  font-size: 50px;
+  align-items: center;
+  justify-content: center;
 }
-main div{
+
+main div {
   align-items: baseline;
 }
 
@@ -47,24 +56,19 @@ main div{
   justify-content: center;
   background: #6E2F84;
   border-radius: 50%;
-  width: 300px;
-  height: 300px;
+  width: 262px;
+  height: 261px;
   z-index: 3;
 }
 
-.circulo img{
+.circulo img {
   transition: 0.5s;
   width: 300px;
   height: 370px;
-  
-}
-.circulo img:hover{
-  width: 550px;
-  height: 700px;
+
 }
 
-
-footer{
+footer {
   width: 100%;
   height: 50px;
   color: #f0f0f0;
@@ -73,5 +77,12 @@ footer{
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.img-popped {
+  display: flex;
+  height: 90px;
+  height: 137.37px;
+  align-content: center;
 }
 </style>
