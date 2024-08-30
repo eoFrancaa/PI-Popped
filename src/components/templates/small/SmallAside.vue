@@ -1,5 +1,5 @@
 <script setup>
-import Navbar from '@/components/Navbar.vue';
+import NavbarMobile from '@/components/NavbarMobile.vue';
 import Outdoors from '@/components/Outdoors.vue';
 import Flavors from '@/components/Flavors.vue';
 
@@ -17,18 +17,17 @@ import Flavors from '@/components/Flavors.vue';
     </div>
   </main>
   <footer>
-    <Navbar />
+    <Navbar-Mobile />
   </footer>
 </template>
 <style scoped>
-*{
-  margin: 0;
-}
+
+
 main {
   font-family: "Inter", sans-serif;
   font-size: xx-large;
   width:360px;
-  height: 685px;
+  height: 495px;
   display: flex;
   align-items: center;
   justify-content: center;
