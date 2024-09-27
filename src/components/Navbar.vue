@@ -1,5 +1,4 @@
 <script>
-import ShopLargeView from '@/views/ShopLargeView.vue';
 </script>
 
 <template>
@@ -32,7 +31,7 @@ a {
 
 p:hover , a:hover{
   cursor: pointer;
-  color:#A211D4;
+  color:#e8cef1;
   transition: all 0.5s;
 }
 img{

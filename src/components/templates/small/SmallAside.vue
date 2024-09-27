@@ -26,7 +26,7 @@ import Flavors from '@/components/Flavors.vue';
 main {
   font-family: "Inter", sans-serif;
   font-size: xx-large;
-  width:360px;
+  width:100%;
   height: 495px;
   display: flex;
   align-items: center;
@@ -55,33 +55,30 @@ main div {
   justify-content: center;
   background: #6E2F84;
   border-radius: 50%;
-  width: 262px;
-  height: 261px;
+  width: 40vh;
+  height: 40vh;
   z-index: 3;
 }
 
 .circulo img {
   transition: 0.5s;
-  width: 300px;
-  height: 370px;
+  width: 50vh;
+  height: 60vh;
 
 }
 
 footer {
-  width: 100%;
-  height: 50px;
-  color: #f0f0f0;
-  background-color: #888689;
-  font-family: "Inter", sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+position: fixed;
+bottom: 0;
 }
 
 .img-popped {
   display: flex;
-  height: 90px;
-  height: 137.37px;
+  height: 20vh;
+  width: 20vh;
   align-content: center;
+  position: fixed;
+  top: -5vh;
 }
+
 </style>

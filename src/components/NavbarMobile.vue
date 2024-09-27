@@ -3,22 +3,21 @@ import ShopLargeView from '@/views/ShopLargeView.vue';
 </script>
 
 <template>
-<header>
+<footer>
   <router-link to="/">
   </router-link>
 <p>Products</p>
 <p>Discovery</p>
 <router-link to="/shop">Shop</router-link>
-</header>
+</footer>
 </template>
 
 <style scoped>
 
-header{
+footer{
   background-color: #9E59D4;  
-  height: 50px;
+  height: 70px;
   width: 100%;
-  top: 599px;
   display: flex;
   align-items: center;  
   justify-content: center;
@@ -26,17 +25,15 @@ header{
   font-family: "Noto Sans Thai", sans-serif;
   border-radius: 10px;
 }
-a {
+a , p {
     text-decoration: none;
     color: black;
 }
 
 p:hover , a:hover{
   cursor: pointer;
-  color:#A211D4;
+  color:#e7d4ee;
   transition: all 0.5s;
 }
-img{
-  max-height: 180px;
-}
+
 </style>
