@@ -1,6 +1,5 @@
 <script setup>
-import MediumAside from '@/components/templates/medium/MediumAside.vue';
 </script>
 <template>
-  <MediumAside/>
+<h1>MediumAside</h1>
   </template>
