@@ -48,15 +48,15 @@ import 'vue-snap/dist/vue-snap.css'
   
 }
 .flavors-img img{
-  max-width: 700px;
+  max-width: 70%;
   transition: 0.5s;
 }
 .flavors-img img:hover{
-  max-width: 750px;
+  max-width: 75%;
 }
 .story-carousel .story-carousel__slide {
-  height: 500px;
-  width: 300px;
+  height: 30%;
+  width: 50%;
 
 }
 .original{
@@ -75,4 +75,5 @@ import 'vue-snap/dist/vue-snap.css'
   color: rgb(18, 136, 18);
   text-shadow: 2px 2px rgba(0, 0, 0, 0.216);
 }
+
 </style>

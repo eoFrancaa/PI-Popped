@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue';
-import ShopLargeView from '@/views/ShopLargeView.vue';
+import LayoutFullShop from '@/layouts/LayoutFullShop.vue';
 import LayoutFull from '@/layouts/LayoutFull.vue';
 
 const router = createRouter({
@@ -21,7 +21,8 @@ const router = createRouter({
     {
       path: '/shop',
       name: 'shop',
-      component: ShopLargeView
+      component: LayoutFullShop
+      
     },
   ]
 })

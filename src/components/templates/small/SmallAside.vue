@@ -3,6 +3,7 @@ import NavbarMobile from '@/components/NavbarMobile.vue';
 import Outdoors from '@/components/Outdoors.vue';
 import Flavors from '@/components/Flavors.vue';
 
+
 </script>
 
 <template>
@@ -16,12 +17,23 @@ import Flavors from '@/components/Flavors.vue';
       <img src="@/assets/Img/Popped.png" alt="">
     </div>
   </main>
+
+    <Outdoors class="outdoors"/>
+
+    <Flavors class="flavors"/>
   <footer>
     <Navbar-Mobile />
   </footer>
 </template>
 <style scoped>
 
+.outdoors{
+  margin-bottom: 15vh;
+}
+.flavors{
+  margin-bottom: 15vh;
+
+}
 
 main {
   font-family: "Inter", sans-serif;

@@ -8,7 +8,7 @@ import Flavors from '@/components/Flavors.vue';
 <template>
   <Navbar/>
  <main>
-  <p>Welcome to;</p>
+  <p>Welcome to</p>
   <h1>Popped .</h1>
   <div class="circulo">
     <img src="@/assets/Img/Popped.png" alt="">
