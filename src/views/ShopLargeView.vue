@@ -108,7 +108,7 @@ function Checkout() {
       </div>
     </carousel>
   </div>
-
+  
   <div class="cart" :class="{ 'cart-show': showCart }">
     <div class="cart-title">
       <h2>My Cart</h2>
@@ -131,6 +131,7 @@ function Checkout() {
       <p class="empty-cart">Your cart is empty.</p>
     </div>
   </div>
+
 </template>
 <style>
 .title {

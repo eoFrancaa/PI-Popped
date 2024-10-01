@@ -35,11 +35,12 @@ import 'vue-snap/dist/vue-snap.css'
 .propagation img{
  border-radius: 10px;
   max-width: 70%;
+  max-height: none;
 }
 
 
 .story-carousel .story-carousel__slide {
-  height: 500px;
+  height: 400px;
   width: 300px;
 
 }
