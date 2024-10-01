@@ -11,9 +11,9 @@ import './plugins/axios';
 
 const app = createApp(App);
 
-app.use(createPinia());
 app.use(VueSnap);
 app.use(router);
+app.use(createPinia());
 app.mount('#app');
 
 

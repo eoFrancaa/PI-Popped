@@ -1,8 +1,8 @@
 <script setup>
-import ProductList from '@/components/ProductList.vue';
+// import ProductList from '@/components/ProductList.vue';
 
 import { onMounted } from 'vue';
-import { PassageUser } from '@passageidentity/passage-elements/passage-user';
+import { Passage } from '@passageidentity/passage-js';
 import { useAuthStore } from '@/stores/auth';
 
 const authStore = useAuthStore();
@@ -10,8 +10,8 @@ const authStore = useAuthStore();
 const getUserInfo = async () => {
   try {
     const authToken = localStorage.getItem('psg_auth_token');
-    const passageUser = new PassageUser(authToken);
-    const user = await passageUser.userInfo(authToken);
+    const passage = new Passage(process.env.VITE_PASSAGE_APP_ID);
+    const user = await passage.currentUser.info()
     if (user) {
       await authStore.setToken(authToken);
     } else {
@@ -28,5 +28,6 @@ onMounted(() => {
 </script>
 
 <template>
-  <product-list />
+  <h1>Teste</h1>
+  <!-- <product-list /> -->
 </template>
