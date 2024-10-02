@@ -1,6 +1,4 @@
 <script setup>
-// import ProductList from '@/components/ProductList.vue';
-
 import { onMounted } from 'vue';
 import { Passage } from '@passageidentity/passage-js';
 import { useAuthStore } from '@/stores/auth';
@@ -29,5 +27,5 @@ onMounted(() => {
 
 <template>
   <h1>Teste</h1>
-  <!-- <product-list /> -->
+
 </template>
