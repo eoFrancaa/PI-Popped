@@ -16,7 +16,11 @@ watch(() => props.category, (newCategory, oldCategory) => {
 
 onMounted(() => {
     products.value = productStore.getProductsByCategory(props.category)
-})
+});
+
+const addToCart = (product) => {
+  product.push(product);
+};
 </script>
 
 
@@ -29,7 +33,6 @@ onMounted(() => {
       <div v-for="product in productStore.products" :key="product.id" class="clouth">
         <slide>
           <div class="card">
-            <!-- <img :src="clouth.capa" /> -->
             <p>{{ product.nome }}</p>
             <p>{{ product.valor }}$</p>
             <button class="b-buy" @click="addToCart(product)">Add to Cart</button>

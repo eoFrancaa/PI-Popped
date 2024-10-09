@@ -22,10 +22,6 @@ function selectCategory(id) {
   currentCategory.value = id
 }
 
-const addToCart = (item) => {
-  cart.value.push(item);
-};
-
 const removeFromCart = (item) => {
   const index = cart.value.indexOf(item);
   if (index > -1) {
