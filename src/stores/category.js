@@ -11,10 +11,14 @@ export const useCategoryStore = defineStore('category', () => {
     categories.value = await categoryService.getCategories();
   }
 
+  function getCategoryNameById(id) {
+    categories.value.find(category => category.id == id).descricao
+  }
+
   async function createCategory(category) {
     await categoryService.createCategory(category);
     getCategories();
   }
 
-  return { categories, getCategories, createCategory };
+  return { categories, getCategories, createCategory, getCategoryNameById };
 });

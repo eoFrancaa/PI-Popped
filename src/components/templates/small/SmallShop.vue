@@ -63,7 +63,7 @@ function Checkout() {
       <div v-for="clouth in clothing" :key="clouth.id" class="clouth">
         <slide>
           <div class="card">
-            <img :src="clouth.img" />
+            <img :src="clouth.capa" />
             <p>{{ clouth.nome }}</p>
             <p>{{ clouth.valor }}$</p>
             <button class="b-buy" @click="addToCart(clouth)">Add to Cart</button>
@@ -81,7 +81,7 @@ function Checkout() {
       <div v-for="cup in cups" :key="cup.id" class="cup">
         <slide>
           <div class="card">
-            <img :src="cup.img" />
+            <img :src="cup.capa" />
             <p>{{ cup.nome }}</p>
             <p>{{ cup.valor }}$</p>
             <button class="b-buy" @click="addToCart(cup)">Add to Cart</button>
@@ -99,7 +99,7 @@ function Checkout() {
       <div v-for="bag in bags" :key="bag.id" class="bag">
         <slide>
           <div class="card">
-            <img :src="bag.img" />
+            <img :src="bag.capa" />
             <p>{{ bag.nome }}</p>
             <p>{{ bag.valor }}$</p>
             <button class="b-buy" @click="addToCart(bag)">Add to Cart</button>
@@ -113,11 +113,11 @@ function Checkout() {
     <p @click="showCart = false"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></p>
     <div class="cart-title">
       <h2>My Cart</h2>
-    </div>
+    </div>  
     <div v-if="cart.length > 0">
       <ul>
         <li v-for="(item, index) in cart" :key="index" class="cart-item">
-          <img :src="item.img" alt="" class="cart-item-img" />
+          <img :src="item.capa" alt="" class="cart-item-img" />
           <div class="cart-item-details">
             <p>{{ item.nome }}</p>
             <p>{{ item.valor }}$</p>
