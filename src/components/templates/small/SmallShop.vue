@@ -1,19 +1,26 @@
 <script setup>
-import NavbarMobileVue from '@/components/NavbarMobile.vue';
-import { ref, computed } from 'vue';
-import { clothing, cups, bags } from '@/_data/shop.js';
 import 'vue-snap/dist/vue-snap.css';
+import { ref, computed, onMounted } from 'vue';
 
-const Bag = ref(false);
-const Cup = ref(false);
-const Clothing = ref(false);
+import ProductList from '@/components/ProductList.vue'
+import NavbarMobileVue from '@/components/NavbarMobile.vue';
+
+import { useCategoryStore } from '@/stores/category';
+
+const categoryStore = useCategoryStore()
+
+
+
+
+
+const currentCategory = ref(null);
 
 const cart = ref([]);
 const showCart = ref(false);
 
-const addToCart = (item) => {
-  cart.value.push(item);
-};
+function selectCategory(id) {
+  currentCategory.value = id
+}
 
 const removeFromCart = (item) => {
   const index = cart.value.indexOf(item);
@@ -26,9 +33,11 @@ const cartTotal = computed(() => {
   return cart.value.reduce((total, item) => total + item.valor, 0);
 });
 
-function Checkout() {
-  alert('pix: 113.480.729-54');
-}
+onMounted(() => {
+  categoryStore.getCategories()
+})
+
+
 </script>
 
 <template>
@@ -37,83 +46,25 @@ function Checkout() {
     <h2>Select Some Category</h2>
   </div>
   <div class="itens">
-    <div class="cups" @click="Cup = true; Bag = false; Clothing = false;">
-      <img src="@/assets/Img/cups.png" alt="" />
-      
-    </div>
-    <div class="bags" @click="Bag = true; Cup = false; Clothing = false;">
-      <img src="@/assets/Img/mochila.png" alt="" />
-      
-    </div>
-    <div class="clothing" @click="Clothing = true; Cup = false; Bag = false;">
-      <img src="@/assets/Img/camisa.png" alt="" />
-    
-    </div>
+    <div v-for="category in categoryStore.categories" :key="category.id" class="category" @click="selectCategory(category.descricao)">
+      <img :src="category.capa.url" alt="" />
+      <p>{{category.descricao}}</p>
+    </div>    
     <div class="cart-button" @click="showCart = !showCart">
       <img src="@/assets/Img/cart.png" alt="" />
-      
+      <p>Cart</p>
     </div>
   </div>
 
-  <div v-if="Clothing">
-    <div class="clouth-title">
-      <h2>Clothing</h2>
-    </div>
-    <carousel>
-      <div v-for="clouth in clothing" :key="clouth.id" class="clouth">
-        <slide>
-          <div class="card">
-            <img :src="clouth.capa" />
-            <p>{{ clouth.nome }}</p>
-            <p>{{ clouth.valor }}$</p>
-            <button class="b-buy" @click="addToCart(clouth)">Add to Cart</button>
-          </div>
-        </slide>
-      </div>
-    </carousel>
-  </div>
+  <ProductList v-if="currentCategory" :category="currentCategory" />
 
-  <div v-if="Cup">
-    <div class="clouth-title">
-      <h2>Cups</h2>
-    </div>
-    <carousel>
-      <div v-for="cup in cups" :key="cup.id" class="cup">
-        <slide>
-          <div class="card">
-            <img :src="cup.capa" />
-            <p>{{ cup.nome }}</p>
-            <p>{{ cup.valor }}$</p>
-            <button class="b-buy" @click="addToCart(cup)">Add to Cart</button>
-          </div>
-        </slide>
-      </div>
-    </carousel>
-  </div>
-
-  <div v-if="Bag">
-    <div class="clouth-title">
-      <h2>Bag</h2>
-    </div>
-    <carousel>
-      <div v-for="bag in bags" :key="bag.id" class="bag">
-        <slide>
-          <div class="card">
-            <img :src="bag.capa" />
-            <p>{{ bag.nome }}</p>
-            <p>{{ bag.valor }}$</p>
-            <button class="b-buy" @click="addToCart(bag)">Add to Cart</button>
-          </div>
-        </slide>
-      </div>
-    </carousel>
-  </div>
+ 
 
   <div class="cart" :class="{ 'cart-show': showCart }">
-    <p @click="showCart = false"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></p>
+    <p  @click="showCart = false"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></p>
     <div class="cart-title">
       <h2>My Cart</h2>
-    </div>  
+    </div>
     <div v-if="cart.length > 0">
       <ul>
         <li v-for="(item, index) in cart" :key="index" class="cart-item">
@@ -126,15 +77,16 @@ function Checkout() {
         </li>
       </ul>
       <p class="total">Total: {{ cartTotal }}$</p>
-      <button class="checkout-button" @click="Checkout">Checkout</button>
+      <button class="checkout-button">Checkout</button>
     </div>
     <div v-else>
       <p class="empty-cart">Your cart is empty.</p>
     </div>
   </div>
   <footer>
-  <NavbarMobileVue/>
+    <NavbarMobileVue/>
   </footer>
+
 </template>
 <style scoped>
 footer{
@@ -160,9 +112,8 @@ footer{
   font-family: 'Dela Gothic One', sans-serif;
   color: rgb(58, 55, 58);
 }
-.cups,
-.bags,
-.clothing,
+
+.category,
 .cart-button {
   width: 150px;
   height: 75px;
@@ -177,17 +128,13 @@ footer{
   backdrop-filter: blur(20px);
   cursor: pointer;
 }
-.cups:hover,
-.bags:hover,
-.clothing:hover,
+.category:hover,
 .cart-button:hover {
   width: 150px;
   height: 80px;
   border-color: blueviolet;
 }
-.cups img,
-.bags img,
-.clothing img,
+.category img,
 .cart-button img{
   max-width: 50px;
 
