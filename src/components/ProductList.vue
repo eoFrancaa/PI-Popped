@@ -2,6 +2,7 @@
 import { onMounted, ref } from 'vue';
 import { useProductStore } from '@/stores/product'
 import { watch } from 'vue';
+import 'vue-snap/dist/vue-snap.css';
 
 const props = defineProps(['category'])
 
@@ -32,11 +33,12 @@ const addToCart = (product) => {
     <carousel>
       <div v-for="product in productStore.products" :key="product.id" class="clouth">
         <slide>
-          <div class="card">
-            <p>{{ product.nome }}</p>
-            <p>{{ product.valor }}$</p>
-            <button class="b-buy" @click="addToCart(product)">Add to Cart</button>
-          </div>
+            <div class="card">
+              <img :src="product.capa.url">
+              <p>{{ product.nome }}</p>
+              <p>{{ product.valor }}$</p>
+              <button class="b-buy" @click="addToCart(product)">Add to Cart</button>
+            </div>
         </slide>
       </div>
     </carousel>
