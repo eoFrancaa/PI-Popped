@@ -8,16 +8,16 @@ import 'vue-snap/dist/vue-snap.css'
 
 <carousel class="story-carousel" >
   <slide>
-   <img src="@/assets/Img/outdor.png" alt="">
+   <img :src="product.capa.url" alt="">
   </slide>
   <slide>
-    <img src="@/assets/Img/outdor3.png" alt="">
+    <img :src="product.capa.url" alt="">
   </slide>
   <slide>
-    <img src="@/assets/Img/Advertising.png" alt="">
+    <img :src="product.capa.url" alt="">
   </slide>
   <slide>
-    <img src="@/assets/Img/outdor2.png" alt="">
+    <img :src="product.capa.url" alt="">
   </slide>
 </carousel>
 
