@@ -1,43 +1,23 @@
 <script setup>
-import 'vue-snap/dist/vue-snap.css';
-import { ref, computed, onMounted } from 'vue';
+import 'vue-snap/dist/vue-snap.css'
+import { ref, onMounted } from 'vue'
 
 import ProductList from '@/components/ProductList.vue'
-import NavbarVue from '@/components/Navbar.vue';
+import NavbarVue from '@/components/Navbar.vue'
 
-import { useCategoryStore } from '@/stores/category';
+import { useCategoryStore } from '@/stores/category'
 
 const categoryStore = useCategoryStore()
 
-
-
-
-
-const currentCategory = ref(null);
-
-const cart = ref([]);
-const showCart = ref(false);
+const currentCategory = ref(null)
 
 function selectCategory(id) {
   currentCategory.value = id
 }
 
-const removeFromCart = (item) => {
-  const index = cart.value.indexOf(item);
-  if (index > -1) {
-    cart.value.splice(index, 1);
-  }
-};
-
-const cartTotal = computed(() => {
-  return cart.value.reduce((total, item) => total + item.valor, 0);
-});
-
 onMounted(() => {
   categoryStore.getCategories()
 })
-
-
 </script>
 
 <template>
@@ -46,43 +26,18 @@ onMounted(() => {
     <h2>Select Some Category</h2>
   </div>
   <div class="itens">
-    <div v-for="category in categoryStore.categories" :key="category.id" class="category" @click="selectCategory(category.descricao)">
+    <div
+      v-for="category in categoryStore.categories"
+      :key="category.id"
+      class="category"
+      @click="selectCategory(category.descricao)"
+    >
       <img :src="category.capa.url" alt="" />
-      <p>{{category.descricao}}</p>
-    </div>    
-    <div class="cart-button" @click="showCart = !showCart">
-      <img src="@/assets/Img/cart.png" alt="" />
-      <p>Cart</p>
+      <p>{{ category.descricao }}</p>
     </div>
   </div>
 
   <ProductList v-if="currentCategory" :category="currentCategory" />
-
- 
-
-  <div class="cart" :class="{ 'cart-show': showCart }">
-    <p  @click="showCart = false"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></p>
-    <div class="cart-title">
-      <h2>My Cart</h2>
-    </div>
-    <div v-if="cart.length > 0">
-      <ul>
-        <li v-for="(item, index) in cart" :key="index" class="cart-item">
-          <img :src="item.capa" alt="" class="cart-item-img" />
-          <div class="cart-item-details">
-            <p>{{ item.nome }}</p>
-            <p>{{ item.valor }}$</p>
-          </div>
-          <button @click="removeFromCart(item)" class="remove-button">Remove</button>
-        </li>
-      </ul>
-      <p class="total">Total: {{ cartTotal }}$</p>
-      <button class="checkout-button">Checkout</button>
-    </div>
-    <div v-else>
-      <p class="empty-cart">Your cart is empty.</p>
-    </div>
-  </div>
 </template>
 <style>
 .title {
@@ -92,9 +47,11 @@ onMounted(() => {
   margin: 20px 0px 40px 0px;
   color: blueviolet;
 }
+
 .title h2 {
   font-family: 'Inter', sans-serif;
 }
+
 .itens {
   width: 100%;
   display: flex;
@@ -104,6 +61,7 @@ onMounted(() => {
   font-family: 'Dela Gothic One', sans-serif;
   color: rgb(58, 55, 58);
 }
+
 .category,
 .cart-button {
   width: 150px;
@@ -119,14 +77,16 @@ onMounted(() => {
   backdrop-filter: blur(20px);
   cursor: pointer;
 }
+
 .category:hover,
 .cart-button:hover {
   width: 170px;
   height: 170px;
   color: blueviolet;
 }
+
 .category img,
-.cart-button img{
+.cart-button img {
   max-width: 70px;
 }
 
@@ -141,6 +101,7 @@ onMounted(() => {
   align-items: center;
   justify-content: center;
 }
+
 .b-buy {
   width: 100px;
   height: 50px;
@@ -152,11 +113,13 @@ onMounted(() => {
   transition: 0.5s;
   margin: 5px;
 }
+
 .b-buy:hover {
   width: 110px;
   height: 60px;
   font-size: large;
 }
+
 .clouth-title {
   width: 100%;
   font-family: 'Inter', sans-serif;
@@ -164,6 +127,7 @@ onMounted(() => {
   justify-content: center;
   margin-top: 15vh;
 }
+
 .clouth,
 .cup,
 .bag {
@@ -176,7 +140,7 @@ onMounted(() => {
 .bag img {
   max-width: 390px;
   max-height: 500px;
-  object-fit: cover
+  object-fit: cover;
 }
 
 .cart {
@@ -253,8 +217,9 @@ onMounted(() => {
   color: #888;
   margin-top: 20px;
 }
-.checkout-button{
- margin: 5vh;
+
+.checkout-button {
+  margin: 5vh;
   width: 200px;
   height: 40px;
   background-color: rgb(144, 0, 255);
@@ -264,5 +229,4 @@ onMounted(() => {
   border-radius: 5px;
   cursor: pointer;
 }
-
 </style>
