@@ -3,27 +3,6 @@ import 'vue-snap/dist/vue-snap.css'
 
 </script>
 
-<template>
-    <div class="propagation">
-
-<!-- <carousel class="story-carousel" >
-  <slide>
-   <img :src="product.capa.url" alt="">
-  </slide>
-  <slide>
-    <img :src="product.capa.url" alt="">
-  </slide>
-  <slide>
-    <img :src="product.capa.url" alt="">
-  </slide>
-  <slide>
-    <img :src="product.capa.url" alt="">
-  </slide>
-</carousel> -->
-
-</div>
-
-</template>
 <style scoped>
 
 .propagation{

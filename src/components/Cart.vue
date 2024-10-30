@@ -1,5 +1,7 @@
 <script setup>
 import { ref, computed } from 'vue'
+
+
 const cart = ref([])
 const showCart = ref(false)
 
@@ -15,9 +17,6 @@ const cartTotal = computed(() => {
   return cart.value.reduce((total, item) => total + item.valor, 0)
 })
 
-function Checkout() {
-  alert('pix: 113.480.729-54')
-}
 </script>
 
 <template>

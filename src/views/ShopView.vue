@@ -3,7 +3,6 @@ import 'vue-snap/dist/vue-snap.css'
 import { ref, onMounted } from 'vue'
 
 import ProductList from '@/components/ProductList.vue'
-// import NavbarVue from '@/components/NavBar.vue'
 
 import { useCategoryStore } from '@/stores/category'
 
@@ -21,23 +20,20 @@ onMounted(() => {
 </script>
 
 <template>
-  <!-- <NavbarVue /> -->
   <div class="title">
     <h2>Select Some Category</h2>
   </div>
   <div class="itens">
     <div
-      v-for="category in categoryStore.categories"
-      :key="category.id"
-      class="category"
-      @click="selectCategory(category.descricao)"
-    >
-      <img :src="category.capa.url" alt="" />
-      <p>{{ category.descricao }}</p>
-    </div>
+    v-for="category in categoryStore.categories"
+    :key="category.id"
+    class="category"   @click="selectCategory(category.descricao)">
+    <img :src="category.capa.url" alt="" />
+    <p>{{ category.descricao }}</p>
   </div>
+</div>
 
-  <ProductList v-if="currentCategory" :category="currentCategory" />
+<ProductList v-if="currentCategory" :category="currentCategory" />
 </template>
 <style>
 .title {
