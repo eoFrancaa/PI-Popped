@@ -3,7 +3,7 @@ import 'vue-snap/dist/vue-snap.css'
 import { ref, onMounted } from 'vue'
 
 import ProductList from '@/components/ProductList.vue'
-import NavbarVue from '@/components/Navbar.vue'
+// import NavbarVue from '@/components/NavBar.vue'
 
 import { useCategoryStore } from '@/stores/category'
 
@@ -21,7 +21,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <NavbarVue />
+  <!-- <NavbarVue /> -->
   <div class="title">
     <h2>Select Some Category</h2>
   </div>
@@ -44,7 +44,7 @@ onMounted(() => {
   width: 100%;
   display: flex;
   justify-content: center;
-  margin: 20px 0px 40px 0px;
+  margin: 0;
   color: blueviolet;
 }
 

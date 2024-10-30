@@ -1,33 +1,27 @@
-import { defineAsyncComponent, onMounted, onUnmounted, shallowRef } from 'vue';
+import { defineAsyncComponent, onMounted, onUnmounted, shallowRef } from 'vue'
 
 export function useLayoutShop() {
-  const layoutShop = shallowRef();
+  const layoutShop = shallowRef()
 
   const updateLayout = () => {
-    const width = window.innerWidth;
+    const width = window.innerWidth
     if (width < 768) {
-      layoutShop.value = defineAsyncComponent(() =>
-        import('@/layouts/LayoutSmallShop.vue'),
-      );
+      layoutShop.value = defineAsyncComponent(() => import('@/layouts/LayoutSmallShop.vue'))
     } else if (width < 1200) {
-      layoutShop.value = defineAsyncComponent(() =>
-        import('@/layouts/LayoutMediumShop.vue'),
-      );
+      layoutShop.value = defineAsyncComponent(() => import('@/layouts/LayoutMediumShop.vue'))
     } else {
-      layoutShop.value = defineAsyncComponent(() =>
-        import('@/layouts/LayoutLargeShop.vue'),
-      );
+      layoutShop.value = defineAsyncComponent(() => import('@/layouts/LayoutLargeShop.vue'))
     }
-  };
+  }
 
   onMounted(() => {
-    updateLayout();
-    window.addEventListener('resize', updateLayout);
-  });
+    updateLayout()
+    window.addEventListener('resize', updateLayout)
+  })
 
   onUnmounted(() => {
-    window.removeEventListener('resize', updateLayout);
-  });
+    window.removeEventListener('resize', updateLayout)
+  })
 
-  return { layoutShop };
+  return { layoutShop }
 }

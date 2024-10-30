@@ -6,7 +6,7 @@ import 'vue-snap/dist/vue-snap.css'
 <template>
     <div class="propagation">
 
-<carousel class="story-carousel" >
+<!-- <carousel class="story-carousel" >
   <slide>
    <img :src="product.capa.url" alt="">
   </slide>
@@ -19,7 +19,7 @@ import 'vue-snap/dist/vue-snap.css'
   <slide>
     <img :src="product.capa.url" alt="">
   </slide>
-</carousel>
+</carousel> -->
 
 </div>
 
