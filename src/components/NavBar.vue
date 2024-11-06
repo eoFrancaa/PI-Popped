@@ -15,7 +15,7 @@ const authStore = useAuthStore();
     </router-link>
     <p>Discovery</p>
     <RouterLink to="/shop">
-      <p>shop</p>
+      <p>Shop</p>
     </RouterLink>
     <div v-if="authStore.loggedIn">
       <router-link to="/logout">Logout</router-link> |

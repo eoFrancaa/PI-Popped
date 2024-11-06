@@ -1,6 +1,6 @@
 <script setup>
-import SmallShop from '@/components/templates/small/SmallShop.vue'
+import ShopSmall from '@/views/ShopSmallView.vue'
 </script>
 <template>
- <SmallShop/>
+ <ShopSmall/>
 </template>

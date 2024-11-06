@@ -1,3 +1,4 @@
+
 <script setup>
 import NavbarMobileVue from '@/components/NavbarMobile.vue';
 import { ref, computed } from 'vue';
@@ -133,7 +134,6 @@ function Checkout() {
     </div>
   </div>
   <footer>
-  <NavbarMobileVue/>
   </footer>
 </template>
 <style scoped>
