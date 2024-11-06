@@ -29,6 +29,7 @@ footer{
   justify-content: center;
   position: fixed;
   bottom: 0;
+  z-index: 60;
   gap: 20px;
   font-family: "Noto Sans Thai", sans-serif;
 }

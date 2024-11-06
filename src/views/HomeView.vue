@@ -34,9 +34,14 @@ onMounted(() => {
   <div class="circulo">
     <img src="@/assets/Img/Popped.png" alt="">
   </div>
+<div class="outdoors">
 
   <Outdoors />
+</div>
+<div class="flavors">
+  
   <Flavors />
+</div>
 </template>
 
 <style scoped>
@@ -56,7 +61,7 @@ div{
   border-radius: 50%;
   width: 400px;
   height: 400px;
-z-index: 3;
+z-index: 2;
 }
 
 .circulo img{
@@ -68,6 +73,10 @@ z-index: 3;
 .circulo img:hover{
   width: 550px;
   height: 700px;
+}
+
+.outdoors{
+margin: 5%;
 }
 
 </style>

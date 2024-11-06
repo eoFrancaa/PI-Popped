@@ -1,6 +1,5 @@
 
 <script setup>
-import NavbarMobileVue from '@/components/NavbarMobile.vue';
 import { ref, computed } from 'vue';
 import { clothing, cups, bags } from '@/_data/shop.js';
 import 'vue-snap/dist/vue-snap.css';

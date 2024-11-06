@@ -5,16 +5,16 @@ import 'vue-snap/dist/vue-snap.css'
  
 <div class="propagation">
     <carousel class="story-carousel" >
-      <slide>
+      <slide class="story-carousel__slide">
        <img src="@/assets/Img/outdor.png" alt="">
       </slide>
-      <slide>
+      <slide class="story-carousel__slide">
         <img src="@/assets/Img/outdor3.png" alt="">
       </slide>
-      <slide>
+      <slide class="story-carousel__slide">
         <img src="@/assets/Img/Advertising.png" alt="">
       </slide>
-      <slide>
+      <slide class="story-carousel__slide">
         <img src="@/assets/Img/outdor2.png" alt="">
       </slide>
     </carousel>
@@ -36,9 +36,9 @@ import 'vue-snap/dist/vue-snap.css'
 }
 
 
-.story-carousel .story-carousel__slide {
-  height: 400px;
-  width: 300px;
+.story-carousel .story-carousel__slide{
+  height: 600px;
+  width: 350px;
 
 }
 

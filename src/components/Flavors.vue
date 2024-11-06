@@ -11,23 +11,23 @@ import 'vue-snap/dist/vue-snap.css'
    <slide class="story-carousel__slide">
 
      <img src="@/assets/Img/Original.png" alt="">
-     <h3 class="original">Original</h3>
+     <h4 class="original">Original</h4>
    </slide>
    <slide class="story-carousel__slide">
 
      <img src="@/assets/Img/Forget.png" alt="">
-     <h3 class="forget">Forget</h3>
+     <h4 class="forget">Forget</h4>
 
    </slide>
    <slide class="story-carousel__slide">
 
      <img src="@/assets/Img/pineapple.png" alt="">
-     <h3 class="orange">Orange & Pineapple</h3>
+     <h4 class="orange">Orange & Pineapple</h4>
    </slide>
    <slide class="story-carousel__slide">
 
      <img src="@/assets/Img/Energy.png" alt="">
-     <h3 class="energy">Energy Drink</h3>
+     <h4 class="energy">Energy Drink</h4>
    </slide>
      </carousel>
    
@@ -43,7 +43,7 @@ import 'vue-snap/dist/vue-snap.css'
   justify-content: center;
 }
 
-.flavors-img h3{
+.flavors-img h4{
   font-family: "Dela Gothic One", sans-serif;
   
 }
@@ -55,8 +55,8 @@ import 'vue-snap/dist/vue-snap.css'
   max-width: 75%;
 }
 .story-carousel .story-carousel__slide {
-  height: 30%;
-  width: 50%;
+  height: 500px;
+  width: 40vh;
 
 }
 .original{

@@ -32,7 +32,7 @@ const addToCart = (product) => {
     </div>
     <carousel>
       <div v-for="product in productStore.products" :key="product.id" class="clouth">
-        <slide>
+      <slide>
             <div class="card">
               <img :src="product.capa.url">
               <p>{{ product.nome }}</p>
