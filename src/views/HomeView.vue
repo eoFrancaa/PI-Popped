@@ -34,23 +34,15 @@ onMounted(() => {
   <div class="circulo">
     <img src="@/assets/Img/Popped.png" alt="">
   </div>
-<div class="outdoors">
-
   <Outdoors />
-</div>
-<div class="flavors">
-  
   <Flavors />
-</div>
 </template>
 
 <style scoped>
-h1{
+h1 {
   font-family: "Shrikhand", serif;
   color: #A211D4;
-}
-div{
-  align-items: baseline;
+  text-align: center;
 }
 
 .circulo {
@@ -61,23 +53,65 @@ div{
   border-radius: 50%;
   width: 400px;
   height: 400px;
-z-index: 2;
+  margin: 0 auto;
+  z-index: 2;
 }
 
-.circulo img{
+.circulo img {
   transition: 0.5s;
   width: 500px;
   height: 650px;
-  
 }
-.circulo img:hover{
+
+.circulo img:hover {
   width: 550px;
   height: 700px;
 }
 
-.outdoors{
-margin: 5%;
+@media (max-width: 768px) {
+  .circulo {
+    width: 300px;
+    height: 300px;
+    
+  }
+  .circulo img {
+    width: 350px;
+    height: 450px;
+  }
+
+  .circulo img:hover {
+    width: 380px;
+    height: 500px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
 }
 
-</style>
+@media (max-width: 480px) {
+  .circulo {
+    width: 200px;
+    height: 200px;
+  }
 
+  .circulo img {
+    width: 250px;
+    height: 350px;
+  }
+
+  .circulo img:hover {
+    width: 280px;
+    height: 380px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    text-align: center;
+    font-size: 1rem;
+  }
+}
+</style>

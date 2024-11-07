@@ -3,27 +3,16 @@ import SmallMenu from '@/components/templates/small/SmallAside.vue'
 </script>
 <template>
     <div id="small">
-
-       
-          
-        
         <main>
             <RouterView />
         </main>
         <footer>
             <SmallMenu />
         </footer>
-        
     </div>
 </template>
 
 <style scoped>
-
-#small {
-    display: flex;
-    flex-direction: column;
-    max-height: 100vh;
-}
 
 
 

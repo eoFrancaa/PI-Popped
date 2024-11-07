@@ -37,22 +37,36 @@ import 'vue-snap/dist/vue-snap.css'
 </template>
 <style scoped>
 .flavors{
-  width: 100%;
+  width: 50vh;
   display: flex;
   align-items: center;
   justify-content: center;
+
 }
 
 .flavors-img h4{
   font-family: "Dela Gothic One", sans-serif;
+}
+@media(max-width: 768px){
+  .flavors-img h4{
+  font-family: "Dela Gothic One", sans-serif;
+  font-size: medium;
+  gap: 1;
+}
+
+.story-carousel__slide {
+  height: 55vh;
+  width: 52vh;
+}
+.story-carousel{
+  height: 50vh;
+  width: 50vh;
   
+}
 }
 .flavors-img img{
   max-width: 70%;
   transition: 0.5s;
-}
-.flavors-img img:hover{
-  max-width: 75%;
 }
 .story-carousel .story-carousel__slide {
   height: 500px;
