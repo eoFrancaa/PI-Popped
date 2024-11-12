@@ -26,7 +26,7 @@ const authStore = useAuthStore();
 footer{
   background-color: #9E59D4;  
   height: 70px;
-  width: 70vh;
+  width: 100vh;
   display: flex;
   align-items: center;  
   justify-content: center;

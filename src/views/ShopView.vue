@@ -36,6 +36,16 @@ onMounted(() => {
 <ProductList v-if="currentCategory" :category="currentCategory" />
 </template>
 <style scoped>
+  .itens {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3vh;
+    font-family: 'Dela Gothic One', sans-serif;
+    color: rgb(58, 55, 58);
+    margin-top: 5vh;
+  }
 .title {
   width: 100%;
   display: flex;
@@ -46,16 +56,6 @@ onMounted(() => {
 
 .title h2 {
   font-family: 'Inter', sans-serif;
-}
-
-.itens {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 3vh;
-  font-family: 'Dela Gothic One', sans-serif;
-  color: rgb(58, 55, 58);
 }
 
 .category{

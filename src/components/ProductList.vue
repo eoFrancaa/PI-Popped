@@ -24,29 +24,39 @@ const addToCart = (product) => {
 };
 </script>
 
-
 <template>
-    <div>
+  <div>
     <div class="clouth-title">
       <h2>{{categoryName}}</h2>
     </div>
-      <div v-for="product in productStore.products" :key="product.id" class="clouth">
-            <div class="card">
-              <img :src="product.capa.url">
-              <p>{{ product.nome }}</p>
-              <p>{{ product.valor }}$</p>
-              <button class="b-buy" @click="addToCart(product)">Add to Cart</button>
-            </div>
+
+    <div class="products-container">
+      <div 
+        v-for="product in productStore.products" 
+        :key="product.id" 
+        class="clouth"
+      >
+        <div class="card">
+          <img :src="product.capa.url" >
+          <p>{{ product.nome }}</p>
+          <p>{{ product.valor }}$</p>
+          <button class="b-buy" @click="addToCart(product)">Add to Cart</button>
+        </div>
       </div>
-  </div>    
+    </div>
+  </div>
 </template>
+
 <style scoped>
-.clouth{
+.products-container {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  flex-wrap: wrap; 
+  justify-content: space-evenly; 
+  gap: 20px; 
+  margin-top: 20px;
 }
+
+
 .card {
   width: 400px;
   height: 600px;
@@ -57,7 +67,11 @@ const addToCart = (product) => {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  overflow: hidden; 
+  font-size: medium;
 }
+
+
 .b-buy {
   width: 100px;
   height: 50px;
@@ -69,14 +83,17 @@ const addToCart = (product) => {
   transition: 0.5s;
   margin: 5px;
 }
-.card img{
+
+.card img {
   max-width: 80%;
 }
+
 .b-buy:hover {
   width: 110px;
   height: 60px;
   font-size: large;
 }
+
 
 .clouth-title {
   width: 100%;
@@ -84,26 +101,19 @@ const addToCart = (product) => {
   display: flex;
   justify-content: center;
   margin-top: 15vh;
+ 
 }
 
+@media (max-width: 768px) {
+ 
+  .products-container {
+    flex-direction: column; 
+    align-items: center;
+  }
 
-
-@media (min-width: 640px) and  (max-width: 768) {
   .card {
-  width: 285px;
-  border: 1px solid rgba(0, 0, 0, 0.064);
-  border-radius: 10px;
-  margin: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-
-}
-.card p {
-  font-family: 'Inter', sans-serif;
-
-}
+    width: 90%; 
+    height: auto; 
+  }
 }
 </style>
