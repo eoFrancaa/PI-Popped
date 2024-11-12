@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue';
-// import LayoutFullShop from '@/layouts/LayoutFullShop.vue';
 import LayoutFull from '@/layouts/LayoutFull.vue';
 import LoginView from '@/views/LoginView.vue'
 import LogoutView from '@/views/LogoutView.vue'
 import ShopView from '@/views/ShopView.vue'
+import ShopSmallView from '@/views/ShopSmallView.vue';
 
 
 
@@ -26,7 +26,11 @@ const router = createRouter({
           name: 'shop',
           component: ShopView         
         },
-    
+        {
+          path: '/shopsmall',
+          name: 'shopsmall',
+          component: ShopSmallView         
+        },
       ],
     },
    {
