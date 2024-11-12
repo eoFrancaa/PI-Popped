@@ -30,17 +30,80 @@ const addToCart = (product) => {
     <div class="clouth-title">
       <h2>{{categoryName}}</h2>
     </div>
-    <carousel>
       <div v-for="product in productStore.products" :key="product.id" class="clouth">
-      <slide>
             <div class="card">
               <img :src="product.capa.url">
               <p>{{ product.nome }}</p>
               <p>{{ product.valor }}$</p>
               <button class="b-buy" @click="addToCart(product)">Add to Cart</button>
             </div>
-        </slide>
       </div>
-    </carousel>
   </div>    
 </template>
+<style scoped>
+.clouth{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.card {
+  width: 400px;
+  height: 600px;
+  border: 1px solid rgba(0, 0, 0, 0.24);
+  border-radius: 10px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.b-buy {
+  width: 100px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: rgb(115, 39, 169);
+  font-family: 'Dela Gothic One', sans-serif;
+  color: rgb(227, 219, 226);
+  cursor: pointer;
+  transition: 0.5s;
+  margin: 5px;
+}
+.card img{
+  max-width: 80%;
+}
+.b-buy:hover {
+  width: 110px;
+  height: 60px;
+  font-size: large;
+}
+
+.clouth-title {
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  justify-content: center;
+  margin-top: 15vh;
+}
+
+
+
+@media (min-width: 640px) and  (max-width: 768) {
+  .card {
+  width: 285px;
+  border: 1px solid rgba(0, 0, 0, 0.064);
+  border-radius: 10px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+
+}
+.card p {
+  font-family: 'Inter', sans-serif;
+
+}
+}
+</style>
