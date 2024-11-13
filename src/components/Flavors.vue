@@ -1,4 +1,5 @@
 <script setup>
+import { flavors } from '@/_data/shop';
 import 'vue-snap/dist/vue-snap.css'
 </script>
 
@@ -8,28 +9,12 @@ import 'vue-snap/dist/vue-snap.css'
    <div class="flavors-img">
     <carousel class="story-carousel" >
 
-   <slide class="story-carousel__slide">
+   <slide v-for="flavor in flavors" class="story-carousel__slide">
 
-     <img src="@/assets/Img/Original.png" alt="">
-     <h4 class="original">Original</h4>
+     <img :src="flavor.url" alt="">
+     <h4 class="original">{{ flavor.descricao }}</h4>
    </slide>
-   <slide class="story-carousel__slide">
-
-     <img src="@/assets/Img/Forget.png" alt="">
-     <h4 class="forget">Forget</h4>
-
-   </slide>
-   <slide class="story-carousel__slide">
-
-     <img src="@/assets/Img/pineapple.png" alt="">
-     <h4 class="orange">Orange & Pineapple</h4>
-   </slide>
-   <slide class="story-carousel__slide">
-
-     <img src="@/assets/Img/Energy.png" alt="">
-     <h4 class="energy">Energy Drink</h4>
-   </slide>
-     </carousel>
+    </carousel>
    
    </div>
  </div>
@@ -43,6 +28,7 @@ import 'vue-snap/dist/vue-snap.css'
   justify-content: center;
 
 }
+
 
 .flavors-img h4{
   font-family: "Dela Gothic One", sans-serif;
@@ -74,19 +60,7 @@ import 'vue-snap/dist/vue-snap.css'
 
 }
 .original{
-  color: #a541c9;
-  text-shadow: 2px 2px rgba(0, 0, 0, 0.216);
-}
-.forget{
-  color: rgb(66, 82, 204);
-  text-shadow: 2px 2px rgba(0, 0, 0, 0.216);
-}
-.orange{
-  color: rgb(206, 152, 52);
-  text-shadow: 2px 2px rgba(0, 0, 0, 0.216);
-}
-.energy{
-  color: rgb(18, 136, 18);
+  color: #504b52;
   text-shadow: 2px 2px rgba(0, 0, 0, 0.216);
 }
 

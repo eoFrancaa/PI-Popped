@@ -1,21 +1,13 @@
 <script setup>
 import 'vue-snap/dist/vue-snap.css'
+import { outdoors } from '@/_data/shop';
 </script>
 <template>
 
   <div class="propagation">
     <carousel class="story-carousel">
-      <slide class="story-carousel__slide">
-        <img src="@/assets/Img/outdor.png" alt="">
-      </slide>
-      <slide class="story-carousel__slide">
-        <img src="@/assets/Img/outdor3.png" alt="">
-      </slide>
-      <slide class="story-carousel__slide">
-        <img src="@/assets/Img/Advertising.png" alt="">
-      </slide>
-      <slide class="story-carousel__slide">
-        <img src="@/assets/Img/outdor2.png" alt="">
+      <slide v-for="outdoor in outdoors" class="story-carousel__slide">
+        <img :src="outdoor.url" alt="">
       </slide>
     </carousel>
   </div>

@@ -1,4 +1,5 @@
 <script setup>
+import Cart from './Cart.vue';
 </script>
 
 <template>

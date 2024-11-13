@@ -1,7 +1,7 @@
 <script setup>
 import { onMounted } from 'vue';
 import { Passage } from '@passageidentity/passage-js';
-
+import { bolinha } from '@/_data/shop';
 import { useAuthStore } from '@/stores/auth';
 import Outdoors from '@/components/Outdoors.vue';
 import Flavors from '@/components/Flavors.vue';
@@ -31,8 +31,8 @@ onMounted(() => {
 <template>
   <p>Welcome to</p>
   <h1>Popped .</h1>
-  <div class="circulo">
-    <img src="@/assets/Img/Popped.png" alt="">
+  <div v-for="bolinhas in bolinha" class="circulo">
+    <img :src="bolinhas.url" alt="">
   </div>
   <Outdoors />
   <Flavors />
