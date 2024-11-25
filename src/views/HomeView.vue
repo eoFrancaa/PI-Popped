@@ -1,3 +1,4 @@
+
 <script setup>
 import { onMounted } from 'vue';
 import { Passage } from '@passageidentity/passage-js';

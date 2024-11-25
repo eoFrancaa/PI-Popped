@@ -54,3 +54,25 @@ export const bolinha = [
 
 }
 ]
+export const discoveries = [
+{
+    id:1,
+    descricao: "Eduardo Gabriel",
+    url: "https://res.cloudinary.com/ddn9jle3r/image/upload/v1732019134/media/images/48ecced8-2b31-46f3-92e8-21e979e9908c_ehfcdf.png",
+},
+{
+    id:2,
+    descricao: "Rafael de França",
+    url: "https://res.cloudinary.com/ddn9jle3r/image/upload/v1732019134/media/images/48ecced8-2b31-46f3-92e8-21e979e9908c_ehfcdf.png",
+},
+{
+    id:3,
+    descricao: "Leandro Gustavo",
+    url: "https://res.cloudinary.com/ddn9jle3r/image/upload/v1732019134/media/images/48ecced8-2b31-46f3-92e8-21e979e9908c_ehfcdf.png",
+},
+{
+    id:4,
+    descricao: "Ana Sofia",
+    url: "https://res.cloudinary.com/ddn9jle3r/image/upload/v1732019134/media/images/48ecced8-2b31-46f3-92e8-21e979e9908c_ehfcdf.png",
+}
+]

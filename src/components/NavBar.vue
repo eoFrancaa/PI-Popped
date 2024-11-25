@@ -1,5 +1,6 @@
 <script setup>
 import Cart from "@/components/Cart.vue";
+import router from "@/router";
 
 import { useAuthStore } from '@/stores/auth';
 
@@ -13,7 +14,9 @@ const authStore = useAuthStore();
     <router-link to="/">
       <p>Home</p>
     </router-link>
-    <p>Discovery</p>
+    <router-link to="/discovery">
+      <p>Discovery</p>
+    </router-link>
     <RouterLink to="/shop">
       <p>Shop</p>
     </RouterLink>

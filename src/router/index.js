@@ -1,9 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue';
 import LayoutFull from '@/layouts/LayoutFull.vue';
-import LoginView from '@/views/LoginView.vue'
-import LogoutView from '@/views/LogoutView.vue'
-import ShopView from '@/views/ShopView.vue'
+import LoginView from '@/views/LoginView.vue';
+import LogoutView from '@/views/LogoutView.vue';
+import ShopView from '@/views/ShopView.vue';
+import DiscoveryView from '@/views/DiscoveryView.vue';
 
 
 
@@ -21,13 +22,18 @@ const router = createRouter({
           component: HomeView,
         },
         {
+          path: '/discovery',
+          name: 'discovery',
+          component: DiscoveryView
+        },
+        {
           path: '/shop',
           name: 'shop',
           component: ShopView         
         },
       ],
     },
-   {
+    {
       path: '/login',
       name: 'login',
       component: LoginView
@@ -37,8 +43,8 @@ const router = createRouter({
       name: 'logout',
       component: LogoutView
     },
-
-
+    
+    
   ]
 })
 export default router
