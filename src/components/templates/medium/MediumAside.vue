@@ -1,4 +1,6 @@
+<script setup>
+import NavbarMedium from '@/components/NavbarMedium.vue'
+</script>
 <template>
-<h1>MediumAside</h1>
-
- <template/>
+  <NavbarMedium />
+</template>
