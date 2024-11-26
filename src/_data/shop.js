@@ -58,7 +58,7 @@ export const discoveries = [
 {
     id:1,
     descricao: "Eduardo Gabriel",
-    url: "https://res.cloudinary.com/ddn9jle3r/image/upload/v1732019134/media/images/48ecced8-2b31-46f3-92e8-21e979e9908c_ehfcdf.png",
+    url: "https://res.cloudinary.com/ddn9jle3r/image/upload/v1/media/images/dd5e100b-1ab1-4d59-8aab-0340e83586a6_ibrera",
 },
 {
     id:2,
