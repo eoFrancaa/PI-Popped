@@ -57,7 +57,7 @@ export const bolinha = [
 export const discoveries = [
 {
     id:1,
-    descricao: "Eduardo Gabriel",
+    descricao: "Eduardo Gabriel dos Santos",
     url: "https://res.cloudinary.com/ddn9jle3r/image/upload/v1/media/images/dd5e100b-1ab1-4d59-8aab-0340e83586a6_ibrera",
 },
 {
@@ -67,12 +67,18 @@ export const discoveries = [
 },
 {
     id:3,
-    descricao: "Leandro Gustavo",
+    descricao: "Leandro Gustavo dos Santos",
     url: "https://res.cloudinary.com/ddn9jle3r/image/upload/v1732019134/media/images/48ecced8-2b31-46f3-92e8-21e979e9908c_ehfcdf.png",
 },
 {
     id:4,
-    descricao: "Ana Sofia",
+    descricao: "Ana Sofia Berg",
     url: "https://res.cloudinary.com/ddn9jle3r/image/upload/v1732019134/media/images/48ecced8-2b31-46f3-92e8-21e979e9908c_ehfcdf.png",
 }
+]
+export const discoveriesText = [
+    {
+        id:1,
+        texto:"O projeto é um site que oferece venda de refrigerante da marca fictícia Popped e também de produtos exclusivos (como vestúario e copos). Desenvolvido principalmentes nas aulas de Desenvolvimento Web III e Projeto Integrador do Professor Marco André e Desenvolvimento Para Dispositivos Movéis do Professor Eduardo Da Silva, mas também engloba matérias do segundo ano de informática para internet como banco de dados e Projetos de software. Pretende se entregar um site que é possivel ser feito compras sem auxilio de um segundo site, informações como login e endereço serão armazenadas.",
+    }
 ]

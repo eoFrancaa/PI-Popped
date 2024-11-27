@@ -1,20 +1,21 @@
 <script setup>
 import { discoveries } from '@/_data/shop';
+import { discoveriesText } from '@/_data/shop';
 </script>
 <template>
-  <h3>Desenvolvedores do Projeto</h3>
+  <h3 id="sectionTitle">Desenvolvedores do Projeto</h3>
   <div class="container">
     <div class="circulos">
       <div class="fotos-dev" v-for="discovery in discoveries">
         <img :src="discovery.url" alt="">
-        <h4>{{ discovery.descricao }}</h4>
+        <h4 id="menuItemTitle">{{ discovery.descricao }}</h4>
       </div>
     </div>
     <div class="feature"></div>
     <div class="write">
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident debitis impedit qui quam suscipit tenetur,
-        earum ipsam nulla consectetur maiores harum architecto quis ea eos, voluptatibus tempore nesciunt nobis
-        cupiditate!</p>
+      <p v-for="discoveryText in discoveriesText"> 
+      {{ discoveryText.texto }}
+      </p>
     </div>
   </div>
 
@@ -26,6 +27,10 @@ import { discoveries } from '@/_data/shop';
   align-items: center;
 }
 
+#sectionTitle {
+  font-size: 25px;
+  margin-right: 555px;
+}
 .circulos {
   display: grid;
   grid-template-columns: repeat(2, 150px);
@@ -41,8 +46,9 @@ import { discoveries } from '@/_data/shop';
   justify-content: center;
   margin-left: 80px;
 }
-.write{
-  background-color: pink;
+.write {
+  background-color: #DFC0F8;
+  font-size: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -53,12 +59,13 @@ import { discoveries } from '@/_data/shop';
 }
 
 img {
-  width: 80px;
-  height: 80px;
+  width: 155px;
+  height: 155px;
+  border-radius: 50%;
+  margin-bottom: 40px;
+}
+#menuItemTitle {
+  font-size: 20px;
 }
 
-h3 {
-  margin-bottom: 20px;
-
-}
 </style>
