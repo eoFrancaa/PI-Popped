@@ -28,7 +28,7 @@ onMounted(() => {
     v-for="category in categoryStore.categories"
     :key="category.id"
     class="category"   @click="selectCategory(category.descricao)">
-    <img :src="category.capa.url" alt="" />
+    <img :src="category.capa?.url" alt="" />
     <p>{{ category.descricao }}</p>
   </div>
 </div>

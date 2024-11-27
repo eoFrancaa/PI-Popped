@@ -1,6 +1,6 @@
 import axios from 'axios' 
 
-axios.defaults.baseURL = 'http://localhost:19003/api'
+axios.defaults.baseURL = 'https://popped-django.onrender.com/api'
 
 axios.interceptors.request.use(
     (config) => {
