@@ -2,22 +2,22 @@ export const outdoors = [
     {
         id:1,
         descricao: "Outdoor Popped Original",
-        url:"http://191.52.55.231:19003/media/images/678e3199-12ee-477e-a6e7-ff9281607779.png"
+        url:"https://res.cloudinary.com/ddn9jle3r/image/upload/v1/media/images/8663f90b-0d1a-4ee1-ac5c-78d07e68a86c_ae0ure"
     },
     {
         id:2,
         descricao: "Outdoor Popped Forget",
-        url:"http://191.52.55.231:19003/media/images/d44a2b5c-d910-461f-9705-f8be8087caac.png"
+        url:"https://res.cloudinary.com/ddn9jle3r/image/upload/v1/media/images/4a8052cb-e5bf-4a2f-b25c-b6bee8ce2f33_vsgszo"
     },
     {
         id:3,
         descricao: "Outdoor Popped Pineapple and Orange",
-        url:"http://191.52.55.231:19003/media/images/9cd77dc3-cd6a-48bd-8baf-d14363571f52.png"
+        url:"https://res.cloudinary.com/ddn9jle3r/image/upload/v1/media/images/4be2e581-d160-489a-84b9-d3d63eee74cf_vdfai5"
     },
     {
         id:4,
         descricao: "Outdoor Popped Energy Drink",
-        url: "http://191.52.55.231:19003/media/images/7f8f7f6b-d540-498b-8ab3-b6dd29d29043.png"
+        url: "https://res.cloudinary.com/ddn9jle3r/image/upload/v1/media/images/dfaa55b2-8fee-4335-8dd6-deb3f60fa3d2_u0qhg3"
     }
 
 
@@ -26,22 +26,22 @@ export const flavors = [
     {
         id:1,
         descricao: "Original",
-        url: "http://191.52.55.231:19003/media/images/5cf4b9af-1df1-4f50-9dc1-97c454c8eaf8.png"
+        url: "https://res.cloudinary.com/ddn9jle3r/image/upload/v1/media/images/62de3d9a-bc58-4a54-8f41-a49c57b65fb5_xojszf"
     },
     {
         id:2,
         descricao: "Forget",
-        url: "http://191.52.55.231:19003/media/images/0b7f3f0e-f226-427a-9ed3-95610d128bb9.png"
+        url:  "https://res.cloudinary.com/ddn9jle3r/image/upload/v1/media/images/0b7f3f0e-f226-427a-9ed3-95610d128bb9_zahl71"
     },
     {
         id:3,
         descricao: "Orange and Pineapple",
-        url:"http://191.52.55.231:19003/media/images/a6fe94b6-e788-4d4c-8af8-7a0f5d608044.png"
+        url:"https://res.cloudinary.com/ddn9jle3r/image/upload/v1/media/images/19586b6e-a1f0-49da-93dd-04c716dba313_vmjz6y"
     },
     {
         id:4,
         descricao: "Energy Drink",
-        url:"http://191.52.55.231:19003/media/images/4d4e6388-267e-424b-a2ad-e2512ba9b207.png"
+        url:"https://res.cloudinary.com/ddn9jle3r/image/upload/v1/media/images/e8a0ebfe-ef59-49da-8b16-86744e1233b3_mhsybw"
     }
 
     
