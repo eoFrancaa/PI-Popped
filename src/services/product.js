@@ -15,4 +15,9 @@ export default class ProductService {
     const response = await axios.post('/produtos/', product);
     return response.data;
   }
+  async pushProdutoByCompra(compra) {
+      const response = await axios.post('/compras/', compra);
+      return response.data; //Precisamos fazer o produto ser uma fk da compra
+  }
+  
 }
