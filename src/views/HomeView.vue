@@ -30,21 +30,50 @@ onMounted(() => {
 </script>
 
 <template>
-  <p>Welcome to</p>
-  <h1>Popped .</h1>
-  <div v-for="bolinhas in bolinha" class="circulo">
-    <img :src="bolinhas.url" alt="">
-  </div>
-  <Outdoors />
-  <Flavors />
+
+  <main>
+
+    <p>Welcome to</p>
+    <h1>Popped .</h1>
+    <div v-for="bolinhas in bolinha" class="circulo">
+      <img :src="bolinhas.url" alt="">
+    </div>
+    <Outdoors class="outdoors" />
+    <Flavors class="flavors"/>
+  </main>
 </template>
 
 <style scoped>
-h1 {
+.outdoors{
+  margin-top: 15vh;
+  margin-bottom: 15vh;
+}
+.flavors{
+  margin-bottom: 15vh;
+
+}
+main {
+  font-family: "Inter", sans-serif;
+  font-size: xx-large;
+  width:100%;
+  height: 495px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #3C0250;
+
+}
+
+main h1 {
+  display: flex;
   font-family: "Shrikhand", serif;
   color: #A211D4;
-  text-align: center;
+  font-size: 50px;
+  align-items: center;
+  justify-content: center;
 }
+
 
 .circulo {
   display: flex;
@@ -85,9 +114,7 @@ h1 {
     height: 500px;
   }
 
-  h1 {
-    font-size: 1.8rem;
-  }
+ 
 }
 
 @media (max-width: 480px) {
@@ -106,13 +133,5 @@ h1 {
     height: 380px;
   }
 
-  h1 {
-    font-size: 1.5rem;
-  }
-
-  p {
-    text-align: center;
-    font-size: 1rem;
-  }
 }
 </style>

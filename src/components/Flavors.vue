@@ -55,7 +55,7 @@ import 'vue-snap/dist/vue-snap.css'
   transition: 0.5s;
 }
 .story-carousel .story-carousel__slide {
-  height: 500px;
+  
   width: 40vh;
 
 }

@@ -12,25 +12,32 @@ import { outdoors } from '@/_data/shop'
   </div>
 </template>
 <style scoped>
-.propagation {
-  width: 50vh;
+.propagation{
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 5%;
 }
-.propagation img {
-  border-radius: 10px;
+.propagation img{
+ border-radius: 10px;
   max-width: 70%;
   max-height: none;
 }
 
+
+.story-carousel .story-carousel__slide {
+  height: 400px;
+  width: 300px;
+
+}
+
+
 @media (max-width: 768px) {
-  .propagation img {
-    border-radius: 10px;
-    max-width: 60%;
-    max-height: none;
-  }
+  .propagation img{
+ border-radius: 10px;
+  max-width: 70%;
+  max-height: none;
+}
 
   .story-carousel__slide {
     height: 55vh;
@@ -44,8 +51,5 @@ import { outdoors } from '@/_data/shop'
     width: 50vh;
   }
 }
-.story-carousel .story-carousel__slide {
-  height: 600px;
-  width: 350px;
-}
+
 </style>
