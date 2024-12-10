@@ -1,23 +1,44 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, onMounted, computed } from 'vue';
+import { useCompraStore } from '@/stores/compra';
+import { useProductStore } from '@/stores/product';
+import { useAuthStore } from "@/stores/auth";
+import { useRoute } from 'vue-router';
 
+const router = useRoute();
+const compraStore = useCompraStore();
+const productStore = useProductStore();
+const authStore = useAuthStore();
 
-const cart = ref([])
-const showCart = ref(false)
+const compras = ref([]);
+const products = ref({});
 
-const removeFromCart = (item) => {
-  const index = cart.value.indexOf(item)
-  if (index > -1) {
-    ;('')
-    cart.value.splice(index, 1)
-  }
-}
-
-const cartTotal = computed(() => {
-  return cart.value.reduce((total, item) => total + item.valor, 0)
+const filteredComprasByUser = computed(() => {
+  return compras.value.filter(compra => compra.usuario == authStore.user.id && compra.status == "Carrinho")[0]
 })
 
+
+onMounted(async () => {
+  await compraStore.getComprasByProduct(router.params.id);
+  compras.value = compraStore.compras
+  products.value = await productStore.getProducts(router.params.id);
+});
+
+// const addToCart = async () => {
+//   if (addCarrinho.value.product){
+//     await compraStore.createCompras({
+//       product: router.params.id,
+//       ...addCarrinho.value
+//     });
+
+//   }
+// }
+
+
+
+const showCart = ref(false);
 </script>
+
 
 <template>
   <svg
@@ -51,13 +72,12 @@ const cartTotal = computed(() => {
     <div class="cart-title">
       <h2>My Cart</h2>
     </div>
-    <div v-if="cart.length > 0">
+    <div v-if="filteredComprasByUser?.itens?.length > 0">
       <ul>
-        <li v-for="(item, index) in cart" :key="index" class="cart-item">
+        <li v-for="(item, index) in filteredComprasByUser?.itens" :key="index" class="cart-item">
           <img :src="item.img" alt="" class="cart-item-img" />
           <div class="cart-item-details">
-            <p>{{ item.nome }}</p>
-            <p>{{ item.valor }}$</p>
+            {{ item.produto.nome }}
           </div>
           <button @click="removeFromCart(item)" class="remove-button">Remove</button>
         </li>

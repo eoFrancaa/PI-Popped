@@ -9,7 +9,7 @@ import 'vue-snap/dist/vue-snap.css'
    <div class="flavors-img">
     <carousel class="story-carousel" >
 
-   <slide v-for="flavor in flavors" class="story-carousel__slide">
+   <slide v-for="flavor in flavors" :key="flavor.id" class="story-carousel__slide">
 
      <img :src="flavor.url" alt="">
      <h4 class="original">{{ flavor.descricao }}</h4>

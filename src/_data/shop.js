@@ -47,7 +47,7 @@ export const flavors = [
     
 ]
 
-export const bolinha = [
+export const bolinhas = [
 {
     id:1,
     url: "https://res.cloudinary.com/ddn9jle3r/image/upload/v1732019134/media/images/48ecced8-2b31-46f3-92e8-21e979e9908c_ehfcdf.png",

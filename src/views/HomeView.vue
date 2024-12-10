@@ -2,10 +2,10 @@
 <script setup>
 import { onMounted } from 'vue';
 import { Passage } from '@passageidentity/passage-js';
-import { bolinha } from '@/_data/shop';
+import { bolinhas } from '@/_data/shop';
 import { useAuthStore } from '@/stores/auth';
-import Outdoors from '@/components/Outdoors.vue';
-import Flavors from '@/components/Flavors.vue';
+import OutdoorsComp from '@/components/OutdoorsComp.vue';
+import FlavorsComp from '@/components/FlavorsComp.vue';
 
 const authStore = useAuthStore();
 
@@ -35,11 +35,11 @@ onMounted(() => {
 
     <p>Welcome to</p>
     <h1>Popped .</h1>
-    <div v-for="bolinhas in bolinha" class="circulo">
-      <img :src="bolinhas.url" alt="">
+    <div v-for="bolinha in bolinhas" :key="bolinha.id" class="circulo">
+      <img :src="bolinha.url" alt="">
     </div>
-    <Outdoors class="outdoors" />
-    <Flavors class="flavors"/>
+    <OutdoorsComp class="outdoors" />
+    <FlavorsComp class="flavors"/>
   </main>
 </template>
 

@@ -5,7 +5,9 @@ import AuthService from '@/services/auth';
 const authService = new AuthService();
 
 export const useAuthStore = defineStore('auth', () => {
-  const user = ref({});
+  const user = ref({
+    id: 1,
+  });
 
   async function setToken(token) {
     user.value = await authService.postUserToken(token);

@@ -1,7 +1,3 @@
-<script setup>
-import Cart from './Cart.vue';
-</script>
-
 <template>
 <footer>
 <img class="logo" src="@/assets/Popped.png">

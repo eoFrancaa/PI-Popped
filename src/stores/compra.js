@@ -10,10 +10,14 @@ export const useCompraStore = defineStore('compra', () => {
   async function getCompras() {
     compras.value = await compraService.getCompras();
   } 
-  async function getCompratByProduct(product) {
-    compras.value = await compraService.getCompratByProduct(product)
+  async function getComprasByProduct(product) {
+    const data = await compraService.getComprasByProduct(product)
+    compras.value = data.results
+  }
+  async function createCompras(compras) {
+    await compraService.createCompras(compras);
+    getCompras
   }
 
-
-  return { compras, getCompras, getCompratByProduct };
+  return { compras, getCompras, getComprasByProduct, createCompras };
 });

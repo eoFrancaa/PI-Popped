@@ -5,8 +5,12 @@ export default class CompraService {
     const response = await axios.get('/compras/');
     return response;
   }
-  async getCompratByProduct(){
-    const response = await axios.get('/compras/');
-    return response;
+  async getComprasByProduct(){
+    const { data } = await axios.get('/compras');
+    return data
+  }
+  async createCompras(){
+    const response = await axios.post('/compras/');
+    return response.results;
   }
 }
