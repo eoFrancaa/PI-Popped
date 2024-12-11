@@ -9,8 +9,11 @@ export default class CompraService {
     const { data } = await axios.get('/compras');
     return data
   }
-  async createCompras(){
-    const response = await axios.post('/compras/');
-    return response.results;
+  async addToCart(compra){
+    await axios.patch(`/compras/${compra.id}`, compra);
+  }
+
+  async deleteCompra(id){
+    await axios.delete(`/compras/${id}/`)
   }
 }

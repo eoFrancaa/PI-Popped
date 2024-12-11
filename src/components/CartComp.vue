@@ -1,44 +1,35 @@
 <script setup>
-import { ref, onMounted, computed } from 'vue';
-import { useCompraStore } from '@/stores/compra';
-import { useProductStore } from '@/stores/product';
+import { ref, onMounted, computed } from "vue";
+import { useCompraStore } from "@/stores/compra";
+import { useProductStore } from "@/stores/product";
 import { useAuthStore } from "@/stores/auth";
-import { useRoute } from 'vue-router';
+import { useRoute } from "vue-router";
 
 const router = useRoute();
 const compraStore = useCompraStore();
 const productStore = useProductStore();
 const authStore = useAuthStore();
 
+const showCart = ref(false);
 const compras = ref([]);
 const products = ref({});
 
 const filteredComprasByUser = computed(() => {
-  return compras.value.filter(compra => compra.usuario == authStore.user.id && compra.status == "Carrinho")[0]
-})
+  return compras.value.filter(
+    (compra) => compra.usuario == authStore.user.id && compra.status == "Carrinho"
+  )[0];
+});
 
+const removeFromCart = async (id) => {
+  await compraStore.deleteCompra(id);
+};
 
 onMounted(async () => {
   await compraStore.getComprasByProduct(router.params.id);
-  compras.value = compraStore.compras
+  compras.value = compraStore.compras;
   products.value = await productStore.getProducts(router.params.id);
 });
-
-// const addToCart = async () => {
-//   if (addCarrinho.value.product){
-//     await compraStore.createCompras({
-//       product: router.params.id,
-//       ...addCarrinho.value
-//     });
-
-//   }
-// }
-
-
-
-const showCart = ref(false);
 </script>
-
 
 <template>
   <svg
@@ -74,15 +65,18 @@ const showCart = ref(false);
     </div>
     <div v-if="filteredComprasByUser?.itens?.length > 0">
       <ul>
-        <li v-for="(item, index) in filteredComprasByUser?.itens" :key="index" class="cart-item">
-          <img :src="item.img" alt="" class="cart-item-img" />
+        <li
+          v-for="(item, index) in filteredComprasByUser?.itens"
+          :key="index"
+          class="cart-item"
+        >
+          <img :src="item.capa" alt="" class="cart-item-img" />
           <div class="cart-item-details">
             {{ item.produto.nome }}
           </div>
-          <button @click="removeFromCart(item)" class="remove-button">Remove</button>
+          <button @click="removeFromCart(item.id)" class="remove-button">Remove</button>
         </li>
       </ul>
-      <p class="total">Total: {{ cartTotal }}$</p>
       <button class="checkout-button" @click="Checkout">Checkout</button>
     </div>
     <div v-else>
@@ -111,7 +105,7 @@ const showCart = ref(false);
 }
 
 .cart-title {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   display: flex;
   justify-content: center;
   margin-bottom: 20px;

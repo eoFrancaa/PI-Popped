@@ -1,12 +1,14 @@
 <script setup>
 import { onMounted, ref } from 'vue';
 import { useProductStore } from '@/stores/product'
+import { useCompraStore } from '@/stores/compra';
 import { watch } from 'vue';
 import 'vue-snap/dist/vue-snap.css';
 
 const props = defineProps(['category'])
 
 const productStore = useProductStore()
+const compraStore = useCompraStore()
 const categoryName = ref('')
 
 const products = ref([])
@@ -19,8 +21,8 @@ onMounted(() => {
     products.value = productStore.getProductsByCategory(props.category)
 });
 
-const addToCart = (product) => {
-  product.push(product);
+const addToCart = async(product) => {
+  await compraStore.addToCart(product);
 };
 </script>
 
