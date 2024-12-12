@@ -16,17 +16,34 @@ export const useCompraStore = defineStore('compra', () => {
     const data = await compraService.getComprasByProduct(product)
     compras.value = data.results
   }
-  async function addToCart(product) {
-    await getCompras()
-    const compra = compras.value.filter(
-      (compra) => compra.usuario == authStore.user.id && compra.status == "Carrinho"
-    )[0];
-    compra?.itens.push({
-      produto: product
-    })
-    await compraService.addToCart(compra);
-    getCompras
-  }
+  async function addToCart(product){
+    try {
+    
+      if (Array.isArray(compras.value)) {
+        const compra = compras.value.find(compra => compra.usuario === product.usuario && compra.status === "Carrinho");
+        if (compra) {
+          
+          compra.itens.push(product);
+        } else {
+          
+          compras.value.push({
+            usuario: product.usuario,
+            status: "Carrinho",
+            itens: [product]
+          });
+        }
+      } else {
+        console.error('compras.value não é um array:', compras.value);
+        compras.value = [{ 
+          usuario: product.usuario,
+          status: "Carrinho",
+          itens: [product]
+        }];
+      }
+    } catch (error) {
+      console.error('Erro ao adicionar ao carrinho:', error);
+    }
+  };
 
   async function deleteCompra(id) {
     await compraService.deleteCompra(id);

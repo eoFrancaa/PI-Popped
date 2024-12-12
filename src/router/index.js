@@ -17,6 +17,16 @@ const router = createRouter({
       component: LayoutFull,
       children: [
         {
+          path: '/login',
+          name: 'login',
+          component: LoginView
+        },
+        {
+          path: '/logout',
+          name: 'logout',
+          component: LogoutView
+        },
+        {
           path: '',
           name: 'Home',
           component: HomeView,
@@ -32,16 +42,6 @@ const router = createRouter({
           component: ShopView         
         },
       ],
-    },
-    {
-      path: '/login',
-      name: 'login',
-      component: LoginView
-    },
-    {
-      path: '/logout',
-      name: 'logout',
-      component: LogoutView
     },
     
     
