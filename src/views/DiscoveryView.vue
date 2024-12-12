@@ -1,39 +1,71 @@
 <script setup>
-import { discoveries} from '@/_data/shop';
+import { discoveries } from '@/_data/shop';
+import { discoveriesText } from '@/_data/shop';
 </script>
-<template>
-<div class="container">
-    <div class="fotos-dev" v-for="discovery in  discoveries">
-        <img :src="discovery.url" alt="">
-        <h4>{{ discovery.descricao }}</h4>
-    </div>
-</div>
 
+<template>
+  <h3 id="sectionTitle">Desenvolvedores do Projeto</h3>
+  <div class="container">
+    <div class="circulos">
+      <div class="fotos-dev" v-for="discovery in discoveries" :key="discovery">
+        <img :src="discovery.url" alt="Foto do desenvolvedor">
+        <h4 id="menuItemTitle">{{ discovery.descricao }}</h4>
+      </div>
+    </div>
+    <div class="feature"></div>
+    <div class="write">
+      <p v-for="discoveryText in discoveriesText" :key="discoveryText"> 
+      {{ discoveryText.texto }}
+      </p>
+    </div>
+  </div>
 </template>
+
 <style scoped>
 .container {
   display: flex;
-  flex-wrap: wrap; /* Permite quebra de linha */
-  gap: 10px; /* Espaçamento entre os elementos */
+  justify-content: flex-start;
+  align-items: flex-start; 
+  gap: 20px; 
+}
+
+#sectionTitle {
+  font-size: 25px;
+  margin-right: 555px;
+}
+
+.circulos {
+  display: grid;
+  grid-template-columns: repeat(2, 150px);
+  gap: 20px;
+  margin-top: 20px; 
+}
+
+.feature {
+  background-color: black;
+  width: 1px;
+  height: 346px;
+  margin-left: 20px;
+}
+
+.write {
+  background-color: #DFC0F8;
+  font-size: 20px;
   padding: 20px;
-  justify-content: center; /* Centraliza os itens */
+  width: 516px;
+  height: auto;
+  border-radius: 15px;
 }
-.fotos-dev{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #6E2F84;
+
+img {
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
-  width: 100px;
-  height: 100px;
-  margin: 0 auto;
-  z-index: 2;
 }
-img{    
-    width: 80px;
-    height: 80px;
-}
-h4{
- font-size: small;
+
+#menuItemTitle {
+  font-size: 18px;
+  text-align: center;
+  margin-top: 10px; 
 }
 </style>

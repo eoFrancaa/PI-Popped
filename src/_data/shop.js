@@ -55,24 +55,30 @@ export const bolinhas = [
 }
 ]
 export const discoveries = [
-{
-    id:1,
-    descricao: "Eduardo Gabriel",
-    url: "https://res.cloudinary.com/ddn9jle3r/image/upload/v1732019134/media/images/48ecced8-2b31-46f3-92e8-21e979e9908c_ehfcdf.png",
-},
-{
-    id:2,
-    descricao: "Rafael de França",
-    url: "https://res.cloudinary.com/ddn9jle3r/image/upload/v1732019134/media/images/48ecced8-2b31-46f3-92e8-21e979e9908c_ehfcdf.png",
-},
-{
-    id:3,
-    descricao: "Leandro Gustavo",
-    url: "https://res.cloudinary.com/ddn9jle3r/image/upload/v1732019134/media/images/48ecced8-2b31-46f3-92e8-21e979e9908c_ehfcdf.png",
-},
-{
-    id:4,
-    descricao: "Ana Sofia",
-    url: "https://res.cloudinary.com/ddn9jle3r/image/upload/v1732019134/media/images/48ecced8-2b31-46f3-92e8-21e979e9908c_ehfcdf.png",
-}
-]
+    {
+        id:1,
+        descricao: "Eduardo Gabriel dos Santos",
+        url: "https://res.cloudinary.com/ddn9jle3r/image/upload/v1/media/images/dd5e100b-1ab1-4d59-8aab-0340e83586a6_ibrera",
+    },
+    {
+        id:2,
+        descricao: "Rafael de França",
+        url: "https://res.cloudinary.com/ddn9jle3r/image/upload/v1/media/images/7b412651-75e6-4a23-af0a-ac59011e480e_kyas61",
+    },
+    {
+        id:3,
+        descricao: "Leandro Gustavo dos Santos",
+        url: "https://res.cloudinary.com/ddn9jle3r/image/upload/v1/media/images/8e86209a-1ba7-47a5-b4e7-a6e61e44e871_avb0xl",
+    },
+    {
+        id:4,
+        descricao: "Ana Sofia Berg",
+        url: "https://res.cloudinary.com/ddn9jle3r/image/upload/v1/media/images/d4db63f3-5f42-4e40-86bd-0026e8f7ea0b_kjkkfl",
+    }
+    ]
+    export const discoveriesText = [
+        {
+            id:1,
+            texto:"O projeto é um site que oferece venda de refrigerante da marca fictícia Popped e também de produtos exclusivos (como vestúario e copos). Desenvolvido principalmentes nas aulas de Desenvolvimento Web III e Projeto Integrador do Professor Marco André e Desenvolvimento Para Dispositivos Movéis do Professor Eduardo Da Silva, mas também engloba matérias do segundo ano de informática para internet como banco de dados e Projetos de software. Pretende se entregar um site que é possivel ser feito compras sem auxilio de um segundo site, informações como login e endereço serão armazenadas.",
+        }
+    ]
