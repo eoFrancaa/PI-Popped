@@ -46,8 +46,32 @@ export const useCompraStore = defineStore('compra', () => {
   };
 
   async function removeFromCart(id) {
+    try {
     
-  }
-
+      if (Array.isArray(compras.value)) {
+        const compra = compras.value.find(compra => compra.usuario === product.usuario && compra.status === "Realizado");
+        if (compra) {
+          
+          compra.itens.delete(product);
+        } else {
+          
+          compras.value.delete({
+            usuario: product.usuario,
+            status: "Realizado",
+            itens: [product]
+          });
+        }
+      } else {
+        console.error('compras.value não é um array:', compras.value);
+        compras.value = [{ 
+          usuario: product.usuario,
+          status: "Realizado",
+          itens: [product]
+        }];
+      }
+    } catch (error) {
+      console.error('Erro ao deletar ao carrinho:', error);
+    }
+  };
   return { compras, getCompras, getComprasByProduct, addToCart, removeFromCart };
 });
