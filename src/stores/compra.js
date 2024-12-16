@@ -45,10 +45,9 @@ export const useCompraStore = defineStore('compra', () => {
     }
   };
 
-  async function deleteCompra(id) {
-    await compraService.deleteCompra(id);
-    await getCompras();
+  async function removeFromCart(id) {
+    
   }
 
-  return { compras, getCompras, getComprasByProduct, addToCart, deleteCompra };
+  return { compras, getCompras, getComprasByProduct, addToCart, removeFromCart };
 });

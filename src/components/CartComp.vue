@@ -22,9 +22,11 @@ const filteredComprasByUser  = computed(() => {
   )[0] || {}; 
 });
 
+console.log(filteredComprasByUser)
+
 
 const removeFromCart = async (id) => {
-  await compraStore.deleteCompra(id);
+  await compraStore.removeFromCart(id);
 };
 
 
@@ -66,21 +68,23 @@ onMounted(async () => {
     <div class="cart-title">
       <h2>My Cart</h2>
     </div>
-    <div v-if="filteredComprasByUser ?.itens?.length > 0">
+    <div v-if="filteredComprasByUser?.itens?.length > 0">
       <ul>
         <li
-          v-for="(item, index) in filteredComprasByUser .itens"
-          :key="index"
+          v-for="item in filteredComprasByUser.itens"
+          :key="item"
           class="cart-item"
         >
-          <img :src="item.capa" alt="" class="cart-item-img" />
+          <img :src="item.capa.url" alt="" class="cart-item-img" />
           <div class="cart-item-details">
-            {{ item.produto?.nome || 'Produto sem nome' }} 
+            {{ item.nome || 'Produto sem nome' }} 
           </div>
           <button @click="removeFromCart(item.id)" class="remove-button">Remove</button>
         </li>
       </ul>
       <button class="checkout-button" @click="Checkout">Checkout</button>
+      {{ filteredComprasByUser.itens[1] }}
+
     </div>
     <div v-else>
       <p class="empty-cart">Your cart is empty.</p>

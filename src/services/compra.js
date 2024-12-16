@@ -13,7 +13,7 @@ export default class CompraService {
     await axios.patch(`/compras/${compra.id}`, compra);
   }
 
-  async deleteCompra(id){
-    await axios.delete(`/compras/${id}/`)
+  async removeFromCart(id){
+    await axios.delete(`/compras/${compra.id}`, compra)
   }
 }
