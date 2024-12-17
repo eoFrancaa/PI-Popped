@@ -5,12 +5,14 @@ import LoginView from '@/views/LoginView.vue';
 import LogoutView from '@/views/LogoutView.vue';
 import ShopView from '@/views/ShopView.vue';
 import DiscoveryView from '@/views/DiscoveryView.vue';
+import Sucesso from "@/views/Sucesso.vue"
 
 
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
+
     {
       path: '/',
       name: '',
@@ -40,6 +42,11 @@ const router = createRouter({
           path: '/shop',
           name: 'shop',
           component: ShopView         
+        },
+        {
+          path: "/sucesso",
+          name: "Sucesso",
+          component: Sucesso,
         },
       ],
     },

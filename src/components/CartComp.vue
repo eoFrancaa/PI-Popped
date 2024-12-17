@@ -1,68 +1,70 @@
 <script setup>
-import { ref, onMounted, computed } from "vue";
-import { useCompraStore } from "@/stores/compra";
-import { useProductStore } from "@/stores/product";
-import { useAuthStore } from "@/stores/auth";
-import { useRoute } from "vue-router";
+import { ref, onMounted, computed } from 'vue'
+import { useCompraStore } from '@/stores/compra'
+import { useProductStore } from '@/stores/product'
+import { useAuthStore } from '@/stores/auth'
+import {  RouterLink, useRoute } from 'vue-router'
 
-const router = useRoute();
-const compraStore = useCompraStore();
-const productStore = useProductStore();
-const authStore = useAuthStore();
+const router = useRoute()
+const compraStore = useCompraStore()
+const productStore = useProductStore()
+const authStore = useAuthStore()
 
-const showCart = ref(false);
-const compras = ref([]);
-const products = ref({});
+const showCart = ref(false)
+const compras = ref([])
+const products = ref({})
 
-
-const filteredComprasByUser  = computed(() => {
-  const userId = authStore.user?.id; 
-  return compras.value.filter(
-    (compra) => compra.usuario === userId && compra.status === "Carrinho"
-  )[0] || {}; 
-});
+const filteredComprasByUser = computed(() => {
+  const userId = authStore.user?.id
+  return (
+    compras.value.filter(
+      (compra) => compra.usuario === userId && compra.status === 'Carrinho'
+    )[0] || {}
+  )
+})
 
 console.log(filteredComprasByUser)
 
-
 const removeFromCart = async (id) => {
-  await compraStore.removeFromCart(id);
-};
-
+  await compraStore.removeFromCart(id)
+}
 
 onMounted(async () => {
-  await compraStore.getComprasByProduct(router.params.id);
-  compras.value = compraStore.compras;
-  products.value = await productStore.getProducts(router.params.id);
-});
+  await compraStore.getComprasByProduct(router.params.id)
+  compras.value = compraStore.compras
+  products.value = await productStore.getProducts(router.params.id)
+})
+
+
 </script>
 
 <template>
-   <svg
-   @click="showCart = true"
-   xmlns="http://www.w3.org/2000/svg"
-   height="27px"
-   viewBox="0 -960 960 960"
-   width="30px"
-   fill="#000000"
- >
-   <path
-     d="M240-80q-33 0-56.5-23.5T160-160v-480q0-33 23.5-56.5T240-720h80q0-66 47-113t113-47q66 0 113 47t47 113h80q33 0 56.5 23.5T800-640v480q0 33-23.5 56.5T720-80H240Zm0-80h480v-480h-80v80q0 17-11.5 28.5T600-520q-17 0-28.5-11.5T560-560v-80H400v80q0 17-11.5 28.5T360-520q-17 0-28.5-11.5T320-560v-80h-80v480Zm160-560h160q0-33-23.5-56.5T480-800q-33 0-56.5 23.5T400-720ZM240-160v-480 480Z"
-   />
- </svg>
+  
+  <svg
+    @click="showCart = true"
+    xmlns="http://www.w3.org/2000/svg"
+    height="27px"
+    viewBox="0 -960 960 960"
+    width="30px"
+    fill="#000000"
+  >
+    <path
+      d="M240-80q-33 0-56.5-23.5T160-160v-480q0-33 23.5-56.5T240-720h80q0-66 47-113t113-47q66 0 113 47t47 113h80q33 0 56.5 23.5T800-640v480q0 33-23.5 56.5T720-80H240Zm0-80h480v-480h-80v80q0 17-11.5 28.5T600-520q-17 0-28.5-11.5T560-560v-80H400v80q0 17-11.5 28.5T360-520q-17 0-28.5-11.5T320-560v-80h-80v480Zm160-560h160q0-33-23.5-56.5T480-800q-33 0-56.5 23.5T400-720ZM240-160v-480 480Z"
+    />
+  </svg>
   <div class="cart" :class="{ 'cart-show': showCart }">
     <p @click="showCart = false">
       <svg
-       xmlns="http://www.w3.org/2000/svg"
-       height="24px"
-       viewBox="0 -960 960 960"
-       width="24px"
-       fill="#5f6368"
-     >
-       <path
-         d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
-       />
-     </svg>
+        xmlns="http://www.w3.org/2000/svg"
+        height="24px"
+        viewBox="0 -960 960 960"
+        width="24px"
+        fill="#5f6368"
+      >
+        <path
+          d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
+        />
+      </svg>
     </p>
 
     <div class="cart-title">
@@ -70,26 +72,26 @@ onMounted(async () => {
     </div>
     <div v-if="filteredComprasByUser?.itens?.length > 0">
       <ul>
-        <li
-          v-for="item in filteredComprasByUser.itens"
-          :key="item"
-          class="cart-item"
-        >
+        <li v-for="item in filteredComprasByUser.itens" :key="item" class="cart-item">
           <img :src="item.capa.url" alt="" class="cart-item-img" />
           <div class="cart-item-details">
-            {{ item.nome || 'Produto sem nome' }} 
+            {{ item.nome || 'Produto sem nome' }}
+            {{ item.valor || 'R$ 0,00' }}
           </div>
           <button @click="removeFromCart(item.id)" class="remove-button">Remove</button>
         </li>
       </ul>
-      <button class="checkout-button" @click="Checkout">Checkout</button>
+      <RouterLink to="/sucesso">
+        <button class="checkout-button " > Checkout</button>
+      </RouterLink>
       {{ filteredComprasByUser.itens[1] }}
-
     </div>
     <div v-else>
       <p class="empty-cart">Your cart is empty.</p>
     </div>
+  
   </div>
+
 </template>
 <style scoped>
 .cart {
@@ -111,7 +113,7 @@ onMounted(async () => {
 }
 
 .cart-title {
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
