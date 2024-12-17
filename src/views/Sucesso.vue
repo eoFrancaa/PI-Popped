@@ -7,7 +7,7 @@
         <h1>Pagamento Concluído!</h1>
         <p>Obrigado pela sua compra.</p>
         <div class="checkmark">✔</div>
-        <p>valor da Compra:{{  }}</p>
+    
       </div>
     </div>
   </template>
